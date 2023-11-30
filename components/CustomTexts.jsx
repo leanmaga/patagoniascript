@@ -21,7 +21,9 @@ export const TitleText = ({ title, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold text-[32px] text-white ${textStyles}`}
+    className={`mt-[8px] font-bold text-white text-[40px] 
+    lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] ${textStyles}`
+    }
   >
     {title}
   </motion.h2>
@@ -33,7 +35,7 @@ export const TitleTextPeople = ({ title, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold text-[24px] text-white ${textStyles}`}
+    className={`text-center max-w-[800px] font-bold text-white ${textStyles}`}
   >
     {title}
   </motion.h2>

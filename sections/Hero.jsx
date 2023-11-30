@@ -27,7 +27,7 @@ const Hero = () => (
       
 
       <div className="flex flex-col justify-center items-center relative z-10">
-        <motion.h1 variants={textVariant(1.1)} className={styles.heroHeading}>
+        <motion.h1 variants={textVariant(1.1)}>
         PatagoniaScript
         </motion.h1>
         <motion.div

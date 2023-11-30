@@ -14,10 +14,9 @@ const styles = {
     navPadding: 'pt-[98px]',
   
     // hero section
-    heroHeading:
-        'lg:text-[144px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px]  text-white',
-    heroSubtitle:'lg:text-[28px] md:text-[24px] sm:text-[18px] text-[28px] text-slate-300 text-center',
-    heroP: 'text-[#a1a1aa] text-center text-[24px] m-4 p-4'
+    heroHeading:'text-[60px] sm:text-lg lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] text-white',
+    heroSubtitle:' text-center text-slate-300 text-center',
+    heroP: 'text-[#a1a1aa] text-start m-4 p-4'
     };
   
   export default styles;

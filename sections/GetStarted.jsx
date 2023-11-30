@@ -14,26 +14,30 @@ const GetStarted = () => (
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col gap-8`}
+      className={`${styles.innerWidth} min-h-[100vh] flex flex-row gap-8 items-center justify-center content-center flex-wrap`}
     >
+
       <motion.div
         variants={planetVariants('left')}
-        className={`flex-1 ${styles.flexCenter}`}
+        className={`mr-8 ${styles.flexCenter}`}
       >
         <img
           src="/react-2.svg"
           alt="react-icon"
-          className="w-[90%] h-[90%] object-contain"
+          className="max-w-[500px] w-[90%] h-[90%] object-contain"
         />
       </motion.div>
+
+
       <motion.div
         variants={fadeIn('left', 'tween', 0.2, 1)}
-        className="flex-[0.75] flex justify-center flex-col"
+        className="flex flex-col justify-center items-center text-center content-center flex-wrap"
       >
         <TypingText title="| Tecnologías utilizadas " />
+        
         <TitleText title={<>Potenciá tu negocio</>} />
 
-        <div className="mt-[31px] flex flex-col max-w-[370px] gap-[24px]">
+        <div className="mt-[31px] flex flex-col items-center content-center flex-wrap max-w-[370px] gap-[24px]">
 
         {startingFeatures.map((feature) => (
             <StartStep key={feature.title} {...feature} />
@@ -42,6 +46,8 @@ const GetStarted = () => (
         </div>
 
       </motion.div>
+
+
     </motion.div>
   </section>
 );

@@ -4,26 +4,39 @@ import { motion } from 'framer-motion';
 
 import styles from '../styles';
 import { insights } from '../constants';
-import { staggerContainer } from '../utils/motion';
 import { InsightCard, TitleText, TypingText } from '../components';
+
+import {  staggerContainer, fadeIn } from '../utils/motion';
 
 const Insights = () => (
   <section className={`${styles.paddings} relative z-10`}>
+
     <motion.div
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto flex flex-col`}
+      className={`${styles.innerWidth} min-h-[100vh] flex flex-row gap-8 justify-center content-center flex-wrap `}
     >
-      <TypingText title="| Our services" textStyles="text-center" />
-      <TitleText title={<>Nuestros Servicios</>} textStyles="text-center" />
-      <div className="mt-[50px] flex flex-col gap-[30px]">
-        {insights.map((item, index) => (
-          <InsightCard key={`insight-${index}`} {...item} index={index + 1} />
-        ))}
-      </div>
+      <motion.div
+        variants={fadeIn('right', 'tween', 0.2, 1)}
+        className="flex flex-col justify-center items-center text-center content-center flex-wrap"
+      >
+        <TypingText title="| Our services"/>
+
+        <TitleText title={<>Nuestros Servicios</>} />
+
+        <div className="mt-[31px] grid xs:grid-cols-1 sm:grid-cols-1 grid-cols-3 gap-[24px] ">
+          {insights.map((item, index) => (
+            <InsightCard key={`insight-${index}`} {...item} index={index + 1} />
+          ))}
+        </div>
+
+      </motion.div>
+      
+
     </motion.div>
+
   </section>
 );
 

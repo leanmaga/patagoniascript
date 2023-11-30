@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 import styles from '../styles';
-import { TitleTextPeople, TypingText } from '../components';
+import { TitleText, TitleTextPeople, TypingText } from '../components';
 import { fadeIn, staggerContainer } from '../utils/motion';
 
 const World = () => (
@@ -13,39 +13,32 @@ const World = () => (
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto flex flex-col`}
+      className={`${styles.innerWidth} min-h-[100vh] flex flex-col gap-8 justify-center content-center flex-wrap`}
     >
+      <motion.div
+        variants={fadeIn('right', 'tween', 0.2, 1)}
+        className="flex flex-col justify-center items-center text-center content-center flex-wrap"
+      >
 
-      <TypingText title="| People on the World" textStyles="text-center" />
+        <TypingText title="| People on the World"/>
 
-      <TitleTextPeople
-        title={(
-          <>"En PatagoniaScript, creemos en el poder de la conectividad global. 
-          Explora cómo nuestro equipo diverso y talentoso trabaja de la mano con 
-          clientes de todo el mundo. Cada proyecto es una colaboración internacional, 
-          y cada línea de código es un paso hacia un mundo más interconectado."
-          </>
-        )}
-        textStyles="text-center"
-      />
+        <div className="mt-[31px] text-[24px] flex flex-col items-center content-center flex-wrap gap-[24px]">
+          <TitleTextPeople title={<>"En PatagoniaScript, creemos en el poder de la conectividad global. 
+            Explora cómo nuestro equipo diverso y talentoso trabaja de la mano con 
+            clientes de todo el mundo. Cada proyecto es una colaboración internacional, 
+            y cada línea de código es un paso hacia un mundo más interconectado."</>} 
+        />
+        </div>
+          
+      </motion.div>
+      
 
       <motion.div
         variants={fadeIn('up', 'tween', 0.3, 1)}
         className="relative mt-[68px] flex w-full h-[550px]"
       >
-        <img src="/map.png" alt="map" className="w-full h-full object-cover" />
+        <img src="/map.png" alt="map" className="w-full h-full object-contain" />
 
-        <div className="absolute bottom-20 right-20 w-[120px] h-[120px] p-[6px] rounded-full bg-[#5D6680]">
-          <img src="people-01.jpg" alt="people" className="w-full h-full rounded-full  bg-auto" />
-        </div>
-
-        <div className="absolute top-10 left-20 w-[120px] h-[120px] p-[6px] rounded-full bg-[#5D6680]">
-          <img src="/people-02.jpg" alt="people" className="w-full h-full rounded-full  bg-auto" />
-        </div>
-
-        <div className="absolute top-1/2 left-[45%] w-[120px] h-[120px] p-[6px] rounded-full bg-[#5D6680]">
-          <img src="people-03.jpg" alt="people" className="w-full h-full rounded-full bg-auto " />
-        </div>
       </motion.div>
     </motion.div>
   </section>
