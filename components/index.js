@@ -5,6 +5,7 @@ import StartStep from './StartStep';
 import NewFeatures from './NewFeatures';
 import InsightCard from './InsightCard';
 import Footer from './Footer';
+import ContactForm from './ContactForm';
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   ExploreCard,
   InsightCard,
   Footer,
+  ContactForm,
 };

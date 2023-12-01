@@ -7,6 +7,7 @@ import { newFeatures } from '../constants';
 import { NewFeatures, TitleText, TypingText } from '../components';
 import { planetVariants, staggerContainer, fadeIn } from '../utils/motion';
 
+
 const WhatsNew = () => (
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div
@@ -41,9 +42,12 @@ const WhatsNew = () => (
           src="/tailwind.svg"
           alt="tailwind-svg"
           className="max-w-[500px] w-[90%] h-[90%] object-contain"
-        />
+        /> 
+
+          
 
       </motion.div>
+
 
     </motion.div>
   </section>
