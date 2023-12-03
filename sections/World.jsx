@@ -22,7 +22,7 @@ const World = () => (
 
         <TypingText title="| People on the World"/>
 
-        <div className="mt-[31px] text-[24px] flex flex-col items-center content-center flex-wrap gap-[24px]">
+        <div className="mt-[31px] sm:text-[20px] text-[24px] flex flex-col items-center content-center flex-wrap gap-[24px]">
           <TitleTextPeople title={<>"En PatagoniaScript, creemos en el poder de la conectividad global. 
             Explora cómo nuestro equipo diverso y talentoso trabaja de la mano con 
             clientes de todo el mundo. Cada proyecto es una colaboración internacional, 
@@ -35,9 +35,9 @@ const World = () => (
 
       <motion.div
         variants={fadeIn('up', 'tween', 0.3, 1)}
-        className="relative mt-[68px] flex w-full h-[550px]"
+        className="relative mt-[68px] sm:mt-[1rem] flex w-full h-[550px] sm:h-[250px]"
       >
-        <img src="/map.png" alt="map" className="w-full h-full object-contain" />
+        <img src="/map.png" alt="map" className="w-full h-full object-contain " />
 
       </motion.div>
     </motion.div>

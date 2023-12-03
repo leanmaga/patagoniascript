@@ -6,29 +6,29 @@ import styles from '../styles';
 import { fadeIn, staggerContainer, zoomIn } from '../utils/motion';
 
 const Feedback = () => (
-  <section className={`${styles.paddings}`}>
+  <section className='p-4 text-center'>
     <motion.div
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth}  w-full flex justify-center flex-row xs:flex-col  sm:flex-col md:flex-col gap-6`}
+      className={`${styles.innerWidth}  w-full lg:max-w-[370px] xs:max-w-[100%] sm:max-w-[100%] sm:m-[0.5rem] flex justify-center flex-row xs:flex-col  sm:flex-col md:flex-col gap-6 sm:gap-0`}
     >
       <motion.div
         variants={fadeIn('right', 'tween', 0.2, 1)}
-        className="flex-[0.5]  max-w-[370px] md:max-w-[100%] justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
+        className="flex-[0.5] text-center content-center justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
       >
         <div className="feedback-gradient" />
         <div>
-          <h4 className="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white">
+          <h4 className="font-bold text-[26px] p-4 sm:leading-[40.32px] leading-[36.32px] text-white">
               Artesanias Stitch 
           </h4>
-          <p className="mt-[8px] font-normal sm:text-[18px] text-[12px] sm:leading-[22.68px] leading-[16.68px] text-white">
+          <p className="mt-[8px] font-normal sm:text-[16px] text-[20px] sm:leading-[22.68px] leading-[16.68px] text-white">
               Experiencia Excepcional con el Servicio de PatagoniaScript
           </p>
         </div>
 
-        <p className="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
+        <p className="mt-[24px] font-normal sm:text-[12px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
                 “Contratar a PatagoniaScript fue una decisión acertada. Su equipo entendió perfectamente mis necesidades como ingeniero. 
                 La landing page que crearon fue precisa, estéticamente agradable y cumplió con todos mis requisitos técnicos. 
                 La comunicación fue fluida, y aprecio la transparencia y la puntualidad en cada fase del proyecto. Recomiendo 
@@ -38,7 +38,7 @@ const Feedback = () => (
 
       <motion.div
         variants={fadeIn('left', 'tween', 0.2, 1)}
-        className="relative flex flex-wrap justify-center items-center"
+        className="relative flex flex-wrap justify-center items-center xs:mt-4 sm:mt-4 md:mt-4"
       >
         <img
           src="/cumbre02.jpg"

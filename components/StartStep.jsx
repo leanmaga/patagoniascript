@@ -2,7 +2,7 @@ import styles from '../styles';
 
 const StartStep = ({ imgUrl, title, subtitle }) => (
 
-  <div className="flex flex-col justify-center text-center items-center sm:max-w-[500px] min-w-[600px] ">
+  <div className="flex flex-col justify-center text-center items-center sm:max-w-[500px] lg:min-w-[600px] ">
 
     <div
       className={`${styles.flexCenter} w-[70px] h-[70px] rounded-[24px] bg-[#323F5D]`}

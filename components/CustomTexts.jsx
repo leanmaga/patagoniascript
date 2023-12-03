@@ -21,7 +21,7 @@ export const TitleText = ({ title, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold text-white text-[40px] 
+    className={`mt-[8px] font-bold text-white text-[40px] xs:text-[24px] sm:text-[24px]
     lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] ${textStyles}`
     }
   >
