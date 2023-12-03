@@ -80,7 +80,7 @@ const ContactForm = () => {
                     id="name"
                     name="name"
                     type="text" 
-                    className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all" 
+                    className=" text-white bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all" 
                     placeholder='Su Nombre'/>
 
                     <ValidationError 
@@ -94,7 +94,7 @@ const ContactForm = () => {
                     id="email" 
                     name="email"
                     type="text" 
-                    className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all" 
+                    className="text-white  bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all" 
                     placeholder='Su Email'/>
 
                     <ValidationError 
@@ -107,7 +107,7 @@ const ContactForm = () => {
                     required
                     id="message" 
                     name="message"
-                    className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12" 
+                    className="text-white  bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12" 
                     placeholder='Su mensaje'>
                     </textarea>
 
