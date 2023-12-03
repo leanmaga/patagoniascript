@@ -26,13 +26,13 @@ const Hero = () => (
     >
       
 
-      <div className="flex flex-col justify-center items-center relative z-10">
-        <motion.h1 variants={textVariant(1.1)}>
-        PatagoniaScript
+      <div className="flex flex-col justify-center items-center relative z-10 ">
+        <motion.h1 variants={textVariant(1.1)} className={`${styles.heroHeading} p-8`}>
+          PatagoniaScript
         </motion.h1>
         <motion.div
           variants={textVariant(1.2)}
-          className="flex flex-row justify-center items-center"
+          className="flex flex-row justify-center items-center p-8"
         >
           <h2 className={`${styles.heroSubtitle} pt-4 `}>"Dónde la creatividad se une con la funcionalidad"</h2>
         </motion.div>
@@ -42,7 +42,7 @@ const Hero = () => (
           className="py-8 flex flex-col justify-center items-center"
         >   
 
-          <button type="button" className="flex items-center h-fit py-4 px-6 bg-[#ca8a04] rounded-[32px] gap-[12px]">
+          <button type="button" className="flex items-center h-fit py-4 px-6 bg-blue-500 hover:bg-blue-700 rounded-[32px] gap-[12px]">
             <span className=" text-[16px] text-white font-bold">
             Contáctanos
             </span>
