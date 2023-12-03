@@ -12,11 +12,11 @@ const Feedback = () => (
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto w-full flex flex-row xs:flex-col gap-6`}
+      className={`${styles.innerWidth}  w-full flex justify-center flex-row xs:flex-col  sm:flex-col md:flex-col gap-6`}
     >
       <motion.div
         variants={fadeIn('right', 'tween', 0.2, 1)}
-        className="flex-[0.5] max-w-[370px] justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
+        className="flex-[0.5]  max-w-[370px] md:max-w-[100%] justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
       >
         <div className="feedback-gradient" />
         <div>
@@ -38,7 +38,7 @@ const Feedback = () => (
 
       <motion.div
         variants={fadeIn('left', 'tween', 0.2, 1)}
-        className="relative flex-1 flex justify-center items-center"
+        className="relative flex flex-wrap justify-center items-center"
       >
         <img
           src="/cumbre02.jpg"
@@ -53,10 +53,11 @@ const Feedback = () => (
           <img
             src="/react-2.svg"
             alt="stamp react"
-            className="w-[155px] h-[155px] object-contain"
+            className="w-[155px] h-[155px] object-contain xs:hidden sm:hidden md:hidden"
           />
         </motion.div>
       </motion.div>
+
     </motion.div>
   </section>
 );
