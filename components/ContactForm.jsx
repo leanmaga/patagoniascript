@@ -74,7 +74,7 @@ const ContactForm = () => {
                 initial='hidden'
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.3 }}  
-                className='flex-1 border min-w-[400px] max-w-[400px] rounded-2x1 flex flex-col gap-y-6 pb-16 md:pb-12 p-6 items-start'>
+                className='text-white  flex-1 border min-w-[400px] max-w-[400px] rounded-2x1 flex flex-col gap-y-6 pb-16 md:pb-12 p-6 items-start'>
                     <input
                     required
                     id="name"
