@@ -16,16 +16,22 @@ const RedesSociales = () => {
     viewport={{ once: false, amount: 0.35 }}
     className='p-2 pt-8'
     >
-        <div className="flex gap-8">
-            {socials.map((social) => (
+      <div className="flex gap-8">
+        {socials.map((social) => (
+
+          <a className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
+            
               <img
                 key={social.name}
                 src={social.url}
                 alt={social.name}
                 className="w-[24px] h-[24px] object-contain cursor-pointer"
               />
-            ))}
-          </div>
+            
+          </a>
+          
+        )) }
+      </div>
     </motion.div>
     
   )

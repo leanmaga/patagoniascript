@@ -87,17 +87,22 @@ export const exploreWorlds = [
     {
       name: 'twitter',
       url: '/twitter.svg',
+      link: 'https://twitter.com/Le_Mark2023',
     },
     {
       name: 'linkedin',
       url: '/linkedin.svg',
+      link: 'https://www.linkedin.com/company/patagoniascript/',
+
     },
     {
       name: 'instagram',
       url: '/instagram.svg',
+      link: 'https://instagram.com/patagoniascript',
     },
     {
       name: 'facebook',
       url: '/facebook.svg',
+      link: 'https://www.facebook.com/profile.php?id=100072302191154',
     },
   ];
