@@ -21,15 +21,17 @@ const Feedback = () => (
         <div className="feedback-gradient" />
         <div>
           <h4 className="font-bold text-[26px] p-4 sm:leading-[40.32px] leading-[36.32px] text-white">
-              Artesanias Stitch 
+            <a className='hover:scale-150' href='https://leanmaga.github.io/Artesanias-Stitch/' target="_blank" rel="noreferrer">
+              Artesanias Stitch
+            </a>  
           </h4>
-          <p className="mt-[8px] font-normal sm:text-[16px] text-[20px] sm:leading-[22.68px] leading-[16.68px] text-white">
+          {/*<p className="mt-[8px] font-normal sm:text-[16px] text-[20px] sm:leading-[22.68px] leading-[16.68px] text-white">
               Experiencia Excepcional con el Servicio de PatagoniaScript
-          </p>
+          </p>*/}
         </div>
 
         <p className="mt-[24px] font-normal sm:text-[12px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
-                “Contratar a PatagoniaScript fue una decisión acertada. Su equipo entendió perfectamente mis necesidades como ingeniero. 
+                “Contratar a PatagoniaScript fue una decisión acertada. Su equipo entendió perfectamente mis necesidades como PYME. 
                 La landing page que crearon fue precisa, estéticamente agradable y cumplió con todos mis requisitos técnicos. 
                 La comunicación fue fluida, y aprecio la transparencia y la puntualidad en cada fase del proyecto. Recomiendo 
                 encarecidamente sus servicios a cualquier profesional que busque calidad y eficiencia.”
