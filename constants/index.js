@@ -106,3 +106,27 @@ export const exploreWorlds = [
       link: 'https://www.facebook.com/profile.php?id=100072302191154',
     },
   ];
+
+  export const navLinks = [
+    {
+      id: "hero",
+      title: "Inicio",
+    },
+    {
+      id: "about",
+      title: "Sobre mi",
+    },
+    {
+      id: "experience",
+      title: "Mis trabajos",
+    },
+    {
+      id: "feedbacks",
+      title: "Mis clientes"
+    },
+    {
+      id: "contact",
+      title: "Contáctame",
+    },
+  ];
+  

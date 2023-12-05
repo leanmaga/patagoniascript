@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+
 import { TypingText, TitleText, TitleTextPeople } from './CustomTexts';
 import ExploreCard from './ExploreCard';
 import StartStep from './StartStep';
@@ -9,7 +9,6 @@ import ContactForm from './ContactForm';
 import Nav from'./Nav'
 
 export {
-  Navbar,
   TitleText,
   TitleTextPeople,
   TypingText,

@@ -1,9 +1,9 @@
-import { Footer, Navbar, ContactForm, Nav } from '../components';
+import { Footer,  ContactForm, Nav } from '../components';
 import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../sections';
 
 const Page = () => (
   <div className="bg-primary-black overflow-hidden">
-    {/*<Navbar />*/}
+   
     <Nav />
     <Hero />
     <div className="relative">

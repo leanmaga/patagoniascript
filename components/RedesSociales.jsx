@@ -14,7 +14,7 @@ const RedesSociales = () => {
     initial="hidden"
     whileInView="show"
     viewport={{ once: false, amount: 0.35 }}
-    className='p-2 pt-8'
+    className='p-2 pt-8   '
     >
       <div className="flex gap-8">
         {socials.map((social) => (

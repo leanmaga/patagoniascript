@@ -9,7 +9,7 @@ import RedesSociales from '@/components/RedesSociales';
 const Hero = () => (
 
   
-  <section id='home' className={styles.yPaddings} >
+  <section id='home'  >
     
     <img
           src="/cumbre1.jpg"
@@ -27,7 +27,17 @@ const Hero = () => (
       
 
       <div className="flex flex-col justify-center items-center relative z-10 ">
-        <motion.h1 variants={textVariant(1.1)} className={`${styles.heroHeading} p-8`}>
+        <motion.img 
+        variants={textVariant(1.2)}
+        src="/logo.png"
+        alt="hero_logo"
+        className="w-[200px] h-[200px] object-contain"
+        >
+        </motion.img>
+      
+
+
+        <motion.h1 variants={textVariant(1.1)} className={`${styles.heroHeading} xs:leading-none sm:leading-none md:leading-none`}>
           PatagoniaScript
         </motion.h1>
         <motion.div
