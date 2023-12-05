@@ -44,7 +44,9 @@ const Hero = () => (
 
           <button type="button" className="flex items-center h-fit py-4 px-6 bg-blue-500 hover:bg-blue-700 rounded-[32px] gap-[12px]">
             <span className=" text-[16px] text-white font-bold">
-            Contáctanos
+              <a href='https://api.whatsapp.com/send?phone=5491127764823&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal.' target="_blank" rel="noreferrer">
+                Contáctanos
+              </a>
             </span>
           </button>
 
