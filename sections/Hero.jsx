@@ -9,7 +9,7 @@ import RedesSociales from '@/components/RedesSociales';
 const Hero = () => (
 
   
-  <section className={styles.yPaddings} >
+  <section id='home' className={styles.yPaddings} >
     
     <img
           src="/cumbre1.jpg"

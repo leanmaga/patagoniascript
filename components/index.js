@@ -6,6 +6,7 @@ import NewFeatures from './NewFeatures';
 import InsightCard from './InsightCard';
 import Footer from './Footer';
 import ContactForm from './ContactForm';
+import Nav from'./Nav'
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   InsightCard,
   Footer,
   ContactForm,
+  Nav,
 };
