@@ -7,6 +7,7 @@ import InsightCard from './InsightCard';
 import Footer from './Footer';
 import ContactForm from './ContactForm';
 import Nav from'./Nav'
+import Mountain from'./Mountain'
 
 export {
   TitleText,
@@ -19,4 +20,5 @@ export {
   Footer,
   ContactForm,
   Nav,
+  Mountain,
 };
