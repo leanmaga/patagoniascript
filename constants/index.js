@@ -98,7 +98,7 @@ export const exploreWorlds = [
     {
       name: 'instagram',
       url: '/instagram.svg',
-      link: 'https://instagram.com/patagoniascript',
+      link: 'https://instagram.com/patagonia.script',
     },
     {
       name: 'facebook',
