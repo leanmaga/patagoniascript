@@ -1,6 +1,9 @@
+'use client'
+
 import styles from '../styles';
 
 const NewFeatures = ({ imgUrl, title, subtitle }) => (
+  
   <div className="flex flex-col justify-center text-center items-center sm:max-w-[500px] lg:min-w-[600px]">
 
     <div
@@ -20,6 +23,7 @@ const NewFeatures = ({ imgUrl, title, subtitle }) => (
     </p>
 
   </div>
+
 );
 
 export default NewFeatures;

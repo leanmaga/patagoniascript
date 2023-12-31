@@ -11,13 +11,15 @@ import { useForm, ValidationError } from '@formspree/react';
 import RedesSociales from './RedesSociales';
 
 
-import { StartStep, TitleText, TypingText } from '../components';
+import { TitleText, TypingText } from '../components';
 
 const ContactForm = () => {
     
     const [state, handleSubmit] = useForm("xjvdrgba");
+    
     if (state.succeeded) {
         return(
+
             <section className='py-16 lg:section' id='contact'>
                 <div className="container xs:text-center xs:items-center">
                     <div className='flex flex-col lg:flex-row'>
@@ -46,10 +48,12 @@ const ContactForm = () => {
                         
                     </div>
                 </div>
-            </section>);
+            </section>
+        );
     }
 
   return (
+
     <section className='py-16 section' id='contact'>
         <div className="container xs:text-center xs:items-center">
             <div className='flex flex-col lg:flex-row justify-center items-center text-center '>
@@ -125,6 +129,7 @@ const ContactForm = () => {
             </div>
         </div>
     </section>
+
   )
 }
 

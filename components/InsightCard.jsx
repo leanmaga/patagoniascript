@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 
 const InsightCard = ({ imgUrl, title, subtitle, index }) => (
+  
   <motion.div
     variants={fadeIn('up', 'spring', index * 0.5, 1)}
     className="flex flex-col justify-center content-center items-center text-center gap-4"
@@ -30,6 +31,7 @@ const InsightCard = ({ imgUrl, title, subtitle, index }) => (
 
     </div>
   </motion.div>
+  
 );
 
 export default InsightCard;

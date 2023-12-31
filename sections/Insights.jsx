@@ -9,6 +9,7 @@ import { InsightCard, TitleText, TypingText } from '../components';
 import {  staggerContainer, fadeIn } from '../utils/motion';
 
 const Insights = () => (
+
   <section id='work' className={`${styles.paddings} relative z-10`}>
 
     <motion.div
@@ -38,6 +39,7 @@ const Insights = () => (
     </motion.div>
 
   </section>
+  
 );
 
 export default Insights;

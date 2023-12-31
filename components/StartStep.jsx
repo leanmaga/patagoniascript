@@ -21,6 +21,7 @@ const StartStep = ({ imgUrl, title, subtitle }) => (
     </p>
 
   </div>
+  
 );
 
 export default StartStep;

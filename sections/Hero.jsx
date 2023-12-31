@@ -8,7 +8,6 @@ import RedesSociales from '@/components/RedesSociales';
 
 const Hero = () => (
 
-  
   <section id='home'  >
     
     <img
@@ -70,6 +69,7 @@ const Hero = () => (
       
     </motion.div>
   </section>
+  
 );
 
 export default Hero;

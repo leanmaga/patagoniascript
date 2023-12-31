@@ -1,17 +1,16 @@
+'use client'
 
 //import icons
 
 import { BiHomeAlt, BiUser } from 'react-icons/bi';
 import { BsClipboardData, BsBriefcase, BsChatSquareText } from 'react-icons/bs';
 
-
 //link
 
 import Link from 'next/link'
 
- 
-
 const Nav = () => {
+
   return <nav className='fixed bottom-0 w-full overflow-hidden z-50'>
     <div className='container mx-auto'>
      
@@ -54,6 +53,7 @@ const Nav = () => {
       </div>
     </div> 
   </nav>;
+
 };
 
 export default Nav;

@@ -8,6 +8,7 @@ import { StartStep, TitleText, TypingText } from '../components';
 import { staggerContainer, fadeIn, planetVariants } from '../utils/motion';
 
 const GetStarted = () => (
+
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div
       variants={staggerContainer}
@@ -50,6 +51,7 @@ const GetStarted = () => (
 
     </motion.div>
   </section>
+  
 );
 
 export default GetStarted;

@@ -9,6 +9,7 @@ import { socials } from '../constants';
 
 const RedesSociales = () => {
   return (
+    
     <motion.div
     variants={staggerContainer}
     initial="hidden"

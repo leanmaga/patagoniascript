@@ -8,6 +8,7 @@ import { navVariants } from '../utils/motion';
 
 
 const Navbar = () => (
+
   <motion.nav
     variants={navVariants}
     initial="hidden"
@@ -33,4 +34,5 @@ const Navbar = () => (
       />
     </div>
   </motion.nav>
+  
 );

@@ -8,13 +8,10 @@ import { footerVariants } from '../utils/motion';
 
 import { socials } from '../constants';
 
-
 import { staggerContainer, textVariant} from '../utils/motion';
 
-
-
-
 const Footer = () => (
+  
   <motion.footer
     variants={footerVariants}
     initial="hidden"
@@ -77,6 +74,7 @@ const Footer = () => (
       </div>
     </div>
   </motion.footer>
+
 );
 
 export default Footer;

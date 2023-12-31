@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 
 import styles from '../styles';
-import { slideIn, staggerContainer, textVariant } from '../utils/motion';
+import { staggerContainer, textVariant } from '../utils/motion';
 
 import {  TitleText, TypingText } from '../components';
 
 const Hero = () => (
+
   <section id='about' className={`${styles.yPaddings} `}>
     <motion.div
       variants={staggerContainer}
@@ -40,6 +41,7 @@ const Hero = () => (
 
     </motion.div>
   </section>
+
 );
 
 export default Hero;
