@@ -6,7 +6,7 @@ import styles from '../styles';
 
 import { footerVariants } from '../utils/motion';
 
-import { socials } from '../constants';
+//import { socials } from '../constants';
 
 import { staggerContainer, textVariant} from '../utils/motion';
 
@@ -42,7 +42,7 @@ const Footer = () => (
           <p className="font-normal text-[14px] text-white opacity-50">
             Copyright © 2023 PatagoniaScript. All rights reserved.
           </p>
-
+{/*}
           <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -51,9 +51,9 @@ const Footer = () => (
           className='p-2 pt-8  xs:hidden md:hidden sm:hidden '
           >
             <div className="flex gap-8">
-              {socials.map((social) => (
+              {socials.map((social, index) => (
 
-                <a className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
+                <a key={index} className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
                   
                     <img
                       key={social.name}
@@ -68,7 +68,7 @@ const Footer = () => (
             </div>
           </motion.div>
     
-
+              */}
           
         </div>
       </div>
