@@ -10,7 +10,11 @@ const RootLayout = ({ children }) => (
       <link rel="stylesheet" href="https://stijndv.com/fonts/Eudoxus"/>
 
     </head>
-    <body>{children}</body>
+    <body>
+    <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0" nonce="hhPeiPhy"></script>
+      {children}
+    </body>
   </html>
 );
 

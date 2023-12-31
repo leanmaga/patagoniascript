@@ -61,6 +61,8 @@ const Feedback = () => (
       </motion.div>
 
     </motion.div>
+
+    <div class="fb-comments" data-href="https://www.patagoniascript.com" data-width="100%" data-numposts="5"></div>
   </section>
 );
 
