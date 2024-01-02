@@ -18,9 +18,9 @@ const RedesSociales = () => {
     className='p-2 pt-8   '
     >
       <div className="flex gap-8">
-        {socials.map((social) => (
+        {socials.map((social, index) => (
 
-          <a className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
+          <a key={index} className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
             
               <img
                 key={social.name}

@@ -16,12 +16,12 @@ const Feedback = () => (
     >
       <motion.div
         variants={fadeIn('right', 'tween', 0.2, 1)}
-        className="flex-[0.5] text-center content-center justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
+        className="sm:w-[100%] xs:w-[100%] w-[50%] content-center justify-center flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
       >
         <div className="feedback-gradient" />
         <div>
           <h4 className="font-bold text-[26px] p-4 sm:leading-[40.32px] leading-[36.32px] text-white">
-            <a className='hover:scale-150' href='https://leanmaga.github.io/Artesanias-Stitch/' target="_blank" rel="noreferrer">
+            <a className='text-center hover:scale-150' href='https://leanmaga.github.io/Artesanias-Stitch/' target="_blank" rel="noreferrer">
               Artesanias Stitch
             </a>  
           </h4>
@@ -30,7 +30,7 @@ const Feedback = () => (
           </p>*/}
         </div>
 
-        <p className="mt-[24px] font-normal sm:text-[12px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
+        <p className="text-start mt-[24px] font-normal sm:text-[12px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
                 “Contratar a PatagoniaScript fue una decisión acertada. Su equipo entendió perfectamente mis necesidades como PYME. 
                 La landing page que crearon fue precisa, estéticamente agradable y cumplió con todos mis requisitos técnicos. 
                 La comunicación fue fluida, y aprecio la transparencia y la puntualidad en cada fase del proyecto. Recomiendo 
@@ -40,7 +40,7 @@ const Feedback = () => (
 
       <motion.div
         variants={fadeIn('left', 'tween', 0.2, 1)}
-        className="relative flex flex-wrap justify-center items-center xs:mt-4 sm:mt-4 md:mt-4"
+        className="sm:w-[100%] xs:w-[100%] w-[50%] relative flex flex-wrap justify-center items-center xs:mt-4 sm:mt-4 md:mt-4"
       >
         <img
           src="/cumbre02.jpg"
@@ -62,7 +62,21 @@ const Feedback = () => (
 
     </motion.div>
 
-    <div className="fb-comments text-white m-4 p-4 flex justify-center content-center " data-href="https://www.patagoniascript.com" data-width="100%" data-numposts="5"></div>
+    {/*<div className="w-[500px] flex justify-center content-center gradient-05">
+
+      <div 
+        className="fb-comments m-4 p-4 flex justify-center content-center " 
+        data-href="https://www.patagoniascript.com" 
+        data-width="100%" 
+        data-numposts="5"
+        data-mobile="true"
+      >
+
+      </div>
+    
+        </div>*/}
+    
+
   </section>
 );
 

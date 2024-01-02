@@ -7,9 +7,9 @@ const MyApp = ({ Component, pageProps }) => (
     <Head>
       <title>PatagoniaScript</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+      <meta http-equiv="Permissions-Policy" content="ambient-light-sensor=(false)"/>
+
       <link rel="preconnect" href="https://www.patagoniascript.com" />
-      <link rel="stylesheet" href="https://stijndv.com/fonts/Eudoxus-Sans.css" />
     </Head>
     <Component {...pageProps} />
   </>
