@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import styles from '../styles';
 import { fadeIn, staggerContainer, zoomIn } from '../utils/motion';
+import Image from 'next/image';
 
 const Feedback = () => (
   <section className='p-4 text-center'>
@@ -42,7 +43,9 @@ const Feedback = () => (
         variants={fadeIn('left', 'tween', 0.2, 1)}
         className="sm:w-[100%] xs:w-[100%] w-[50%] relative flex flex-wrap justify-center items-center xs:mt-4 sm:mt-4 md:mt-4"
       >
-        <img
+        <Image
+          width={610}
+          height={210}
           src="/cumbre02.jpg"
           alt="planet-09"
           className="max-h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]"
@@ -52,10 +55,12 @@ const Feedback = () => (
           variants={zoomIn(0.4, 1)}
           className="absolute -left-[10%] top-[3%] z-11"
         >
-          <img
+          <Image
+            width={155}
+            height={155}
             src="/react-2.svg"
             alt="stamp react"
-            className="w-[155px] h-[155px] object-contain xs:hidden sm:hidden md:hidden"
+            className=" object-contain xs:hidden sm:hidden md:hidden"
           />
         </motion.div>
       </motion.div>

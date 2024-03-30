@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import styles from '../styles';
 import {  TitleTextPeople, TypingText } from '../components';
 import { fadeIn, staggerContainer } from '../utils/motion';
+import Image from 'next/image';
 
 const World = () => (
 
@@ -38,7 +39,12 @@ const World = () => (
         variants={fadeIn('up', 'tween', 0.3, 1)}
         className="relative mt-[68px] sm:mt-[1rem] flex w-full h-[550px] sm:h-[250px]"
       >
-        <img src="/map.png" alt="map" className="w-full h-full object-contain " />
+        <Image
+          width={550}
+          height={550} 
+          src="/map.png" 
+          alt="map" 
+          className="w-full h-full object-contain " />
 
       </motion.div>
     </motion.div>

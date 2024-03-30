@@ -1,16 +1,14 @@
-
+import { Nav } from '@/components';
 import '../styles/globals.css';
 
 const RootLayout = ({ children }) => (
+
   <html lang="en">
-    <head>
-     
-      
-    </head>
-    <body>
+    <body> 
+        
+        <Nav />
       
         {children}
-      
     </body>
   </html>
 );

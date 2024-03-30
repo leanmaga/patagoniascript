@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import styles from '../styles';
 
 const NewFeatures = ({ imgUrl, title, subtitle }) => (
@@ -10,7 +11,12 @@ const NewFeatures = ({ imgUrl, title, subtitle }) => (
       className={`${styles.flexCenter} w-[70px] h-[70px] rounded-[24px] bg-[#323F5D]`}
     >
 
-      <img src={imgUrl} alt="icon" className="w-1/2 h-1/2 object-contain" />
+      <Image 
+        width={70}
+        height={70}
+        src={imgUrl} 
+        alt="icon" 
+        className="w-1/2 h-1/2 object-contain" />
 
     </div>
 

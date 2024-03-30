@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 
 import { fadeIn } from '../utils/motion';
+import Image from 'next/image';
 
 const InsightCard = ({ imgUrl, title, subtitle, index }) => (
   
@@ -10,10 +11,12 @@ const InsightCard = ({ imgUrl, title, subtitle, index }) => (
     variants={fadeIn('up', 'spring', index * 0.5, 1)}
     className="flex flex-col justify-center content-center items-center text-center gap-4"
   >
-    <img
+    <Image
+      width={300}
+      height={250}
       src={imgUrl}
       alt="planet-01"
-      className="w-full h-[250px] rounded-[32px] object-cover"
+      className="rounded-[32px] object-cover"
     />
 
     <div className="w-full flex justify-between items-center">

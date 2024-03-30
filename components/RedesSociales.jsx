@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { staggerContainer } from '../utils/motion';
 
 import { socials } from '../constants';
+import Image from 'next/image';
 
 
 const RedesSociales = () => {
@@ -22,11 +23,13 @@ const RedesSociales = () => {
 
           <a key={index} className='hover:scale-150' href={social.link} target="_blank" rel="noreferrer">
             
-              <img
+              <Image
+                width={24}
+                height={24}
                 key={social.name}
                 src={social.url}
                 alt={social.name}
-                className="w-[24px] h-[24px] object-contain cursor-pointer"
+                className="object-contain cursor-pointer"
               />
             
           </a>

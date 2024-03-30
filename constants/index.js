@@ -1,28 +1,28 @@
 export const exploreWorlds = [
     {
       id: 'world-1',
-      imgUrl: '/bussines16.jpg',
-      title: 'Business',
+      imgUrl: '/gym.jpg',
+      title: 'Gym',
     },
     {
       id: 'world-2',
-      imgUrl: '/fashion14.jpg',
-      title: 'Fashion',
+      imgUrl: '/sele.png',
+      title: 'Sele-Style',
     },
     {
       id: 'world-3',
-      imgUrl: '/chrismas10.jpg',
-      title: 'Chrismas',
+      imgUrl: '/stitch.jpg',
+      title: 'Artesanias Stitch',
     },
     {
       id: 'world-4',
-      imgUrl: '/coffee04.jpg',
-      title: 'Coffee Shop',
+      imgUrl: '/muebles.png',
+      title: 'Muebles Magallanes',
     },
     {
       id: 'world-5',
-      imgUrl: '/gym01.jpg',
-      title: 'Gym',
+      imgUrl: '/frank.png',
+      title: 'Amway Ventas',
     },
   ];
   
@@ -64,17 +64,18 @@ export const exploreWorlds = [
   
   export const insights = [
     {
-      imgUrl: '/planet-01.png',
-      title: 'Tu Historia Visual: Portafolios Impresionantes',
-      subtitle:
-          'Destaca tu trabajo de manera única con nuestro servicio de creación de portafolios. Desde artistas hasta profesionales independientes, te ayudamos a contar tu historia visual de manera impactante. Nuestra landing page personalizada resalta tus mejores proyectos, habilidades y logros, asegurando que dejes una impresión duradera en quienes visitan tu portafolio en línea.',
-    },
-    {
       imgUrl: '/planet-02.png',
       title: 'De la Idea a la Celebración: Landing Pages de Eventos Memorables',
       subtitle:
           'Cautiva a tu audiencia desde el primer clic con nuestra landing page diseñada para eventos. Ya sea que estés planeando una conferencia, boda o lanzamiento, creamos una experiencia digital que anticipa y celebra tu evento. Desde detalles logísticos hasta momentos emocionantes, nuestra landing page garantiza que cada visitante esté emocionado por lo que está por venir.',
     },
+    {
+      imgUrl: '/planet-01.png',
+      title: 'Tu Historia Visual: Portafolios Impresionantes',
+      subtitle:
+          'Destaca tu trabajo de manera única con nuestro servicio de creación de portafolios. Desde artistas hasta profesionales independientes, te ayudamos a contar tu historia visual de manera impactante. Nuestra landing page personalizada resalta tus mejores proyectos, habilidades y logros, asegurando que dejes una impresión duradera en quienes visitan tu portafolio en línea.',
+    },
+    
     {
       imgUrl: '/planet-03.png',
       title: 'Vende con Estilo: Landing Pages para Productos Irresistibles',
