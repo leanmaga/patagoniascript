@@ -1,5 +1,5 @@
 import { Footer,  ContactForm} from '../components';
-import { Hero,About, Explore, Feedback, GetStarted, Insights, WhatsNew, World } from '../sections';
+import { Hero,About, Feedback, GetStarted, Insights, WhatsNew, World } from '../sections';
 
 
 const Page = () => (
@@ -10,7 +10,7 @@ const Page = () => (
       <div className="relative">
         <About />
         <div className="gradient-03 z-0" />
-        <Explore />
+        {/*<Explore />*/}
       </div>
       
       <div className="relative">
