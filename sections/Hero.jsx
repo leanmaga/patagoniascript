@@ -84,6 +84,9 @@ const EnhancedHero = () => (
             {/* Efecto de brillo en hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
+            {/* Destello que se mueve de izquierda a derecha */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shimmer" />
+
             <span className="text-[16px] text-white font-bold relative z-10">
               <a
                 href="https://api.whatsapp.com/send?phone=5491127764823&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal."

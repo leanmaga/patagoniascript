@@ -162,3 +162,27 @@ span ._5mdd {
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
 }
+@keyframes spin-slow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+  animation-delay: 2s;
+}
