@@ -5,7 +5,7 @@ import styles from "../styles";
 import { staggerContainer, textVariant } from "../utils/motion";
 import RedesSociales from "@/components/RedesSociales";
 
-const EnhancedHero = () => (
+const Hero = () => (
   <section id="home" className="relative min-h-screen overflow-hidden">
     {/* Fondo azul gradiente */}
     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900" />
@@ -142,4 +142,4 @@ const EnhancedHero = () => (
   </section>
 );
 
-export default EnhancedHero;
+export default Hero;

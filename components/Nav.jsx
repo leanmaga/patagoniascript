@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { BiHomeAlt, BiUser } from "react-icons/bi";
 import { BsClipboardData, BsBriefcase, BsChatSquareText } from "react-icons/bs";
 
-const Nav = () => {
+const Nav = ({ show = true }) => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -19,14 +19,13 @@ const Nav = () => {
   const navItems = [
     { id: "home", icon: BiHomeAlt, label: "Inicio" },
     { id: "about", icon: BiUser, label: "Nosotros" },
-    { id: "explore", icon: BsClipboardData, label: "Servicios" }, // Cambié de 'explore' a 'services'
+    { id: "explore", icon: BsClipboardData, label: "Servicios" },
     { id: "work", icon: BsBriefcase, label: "Trabajo" },
     { id: "contact", icon: BsChatSquareText, label: "Contacto" },
   ];
 
   const handleClick = (sectionId) => {
     setActiveSection(sectionId);
-    // Simulamos el scroll suave
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -34,16 +33,26 @@ const Nav = () => {
   };
 
   return (
-    <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+    <nav
+      className={`
+        fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50
+        transition-all duration-500 ease-in-out
+        ${
+          show
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-full pointer-events-none"
+        }
+      `}
+    >
       <div
         className={`
-        transition-all duration-300 ease-in-out
-        ${isScrolled ? "bg-black/40" : "bg-black/20"} 
-        backdrop-blur-xl rounded-full border border-white/10
-        shadow-2xl shadow-cyan-500/20
-        px-6 py-3 flex gap-2
-        hover:shadow-cyan-500/30 hover:bg-black/50
-      `}
+          transition-all duration-300 ease-in-out
+          ${isScrolled ? "bg-black/40" : "bg-black/20"} 
+          backdrop-blur-xl rounded-full border border-white/10
+          shadow-2xl shadow-cyan-500/20
+          px-6 py-3 flex gap-2
+          hover:shadow-cyan-500/30 hover:bg-black/50
+        `}
       >
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -70,12 +79,12 @@ const Nav = () => {
               {/* Tooltip */}
               <span
                 className="
-                absolute -top-12 left-1/2 transform -translate-x-1/2
-                bg-black/80 text-white text-xs px-2 py-1 rounded-md
-                opacity-0 group-hover:opacity-100 transition-opacity duration-200
-                pointer-events-none whitespace-nowrap
-                border border-white/20
-              "
+                  absolute -top-12 left-1/2 transform -translate-x-1/2
+                  bg-black/80 text-white text-xs px-2 py-1 rounded-md
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-200
+                  pointer-events-none whitespace-nowrap
+                  border border-white/20
+                "
               >
                 {item.label}
               </span>
