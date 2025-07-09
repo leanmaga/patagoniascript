@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap");
 
 * {
   margin: 0;
@@ -14,8 +12,7 @@
   scroll-behavior: smooth;
 }
 
-
-.hero{
+.hero {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -23,7 +20,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .gradient-01 {
   background-image: linear-gradient(
@@ -127,19 +123,16 @@
   );
 }
 
-
-
 span ._5mdd {
-  color:#f1f1f1;
+  color: #f1f1f1;
 }
-
 
 .active {
   color: #fff;
   border-radius: 100%;
 }
 
-.btn{
+.btn {
   background: linear-gradient(
     92.23deg,
     #7a7b7c 21.43%,
@@ -148,7 +141,7 @@ span ._5mdd {
     #030303 117.04%
   );
 }
-.btn:hover{
+.btn:hover {
   background: linear-gradient(
     92.23deg,
     #5683af 21.43%,
@@ -156,4 +149,16 @@ span ._5mdd {
     #1b1b1b 100%,
     #030303 117.04%
   );
+}
+
+@keyframes spin-slow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
