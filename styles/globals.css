@@ -208,3 +208,14 @@ span ._5mdd {
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
 }
+@keyframes spin-slow-world {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.animate-spin-slow-world {
+  animation: spin-slow 20s linear infinite;
+}

@@ -60,6 +60,8 @@ const Page = () => {
         <Insights />
         <div className="gradient-04 z-0" />
         <Feedback />
+      </div>
+      <div className="relative">
         <ContactForm />
       </div>
 

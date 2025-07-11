@@ -12,7 +12,7 @@ const ContactForm = () => {
   if (state.succeeded) {
     return (
       <section
-        className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-900 relative overflow-hidden"
+        className="h-[100vh] bg-gradient-to-br from-slate-900 via-black to-slate-900 relative overflow-hidden"
         id="contact"
       >
         <div className="max-w-3xl mx-auto px-6 text-center">
