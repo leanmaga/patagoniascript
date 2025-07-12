@@ -195,7 +195,7 @@ const Insights = () => {
           onTouchEnd={onTouchEnd}
         >
           {/* Botones de navegación (solo desktop) */}
-          <button
+          {/* <button
             onClick={goToPrevious}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 
                        bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
@@ -241,7 +241,7 @@ const Insights = () => {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </button>
+          </button> */}
 
           {/* Tarjetas */}
           {packages.map((pkg, index) => {
@@ -388,22 +388,6 @@ const Insights = () => {
 
         {/* Indicadores de navegación */}
         <div className="text-center">
-          {/* Indicador de swipe (solo en móvil) */}
-          <div className="mb-3 md:hidden">
-            <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
-              <span className="animate-pulse">👈</span>
-              Desliza para cambiar
-              <span className="animate-pulse">👉</span>
-            </p>
-          </div>
-
-          {/* Indicador de teclado (solo en desktop) */}
-          <div className="mb-4 hidden md:block">
-            <p className="text-gray-500 text-xs">
-              Usa las flechas del teclado ← → para navegar
-            </p>
-          </div>
-
           {/* Puntos indicadores */}
           <div className="flex justify-center gap-3">
             {packages.map((_, index) => (
