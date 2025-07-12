@@ -1,39 +1,85 @@
+// app/sections/Explore.jsx
 "use client";
 
-// Sección Explore Mejorada
-
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import styles from "../styles";
 import { exploreWorlds } from "../constants";
-import { staggerContainer, textVariant } from "../utils/motion";
-import { ExploreCard } from "@/components";
+import ProjectCarouselCard from "@/components/ProjectCarouselCard";
 
 const Explore = () => {
-  const [active, setActive] = useState("world-2");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
+  const minSwipeDistance = 50;
+
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev + 1) % exploreWorlds.length);
   };
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    },
+  const goToPrevious = () => {
+    setActiveIndex(
+      (prev) => (prev - 1 + exploreWorlds.length) % exploreWorlds.length
+    );
+  };
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(false);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+    if (touchStart && Math.abs(touchStart - e.targetTouches[0].clientX) > 10) {
+      setIsDragging(true);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) goToNext();
+    else if (isRightSwipe) goToPrevious();
+
+    setTimeout(() => setIsDragging(false), 100);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") goToPrevious();
+      else if (e.key === "ArrowRight") goToNext();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const getCardStyle = (index) => {
+    const position = index - activeIndex;
+    if (position === 0)
+      return {
+        transform: "translateX(0%) scale(1) rotateY(0deg)",
+        zIndex: 20,
+        opacity: 1,
+      };
+    if (position === -1)
+      return {
+        transform: "translateX(-60%) scale(0.8) rotateY(25deg)",
+        zIndex: 10,
+        opacity: 0.7,
+      };
+    if (position === 1)
+      return {
+        transform: "translateX(60%) scale(0.8) rotateY(-25deg)",
+        zIndex: 10,
+        opacity: 0.7,
+      };
+    return { transform: "translateX(0%) scale(0.6)", zIndex: 1, opacity: 0 };
   };
 
   return (
@@ -41,32 +87,17 @@ const Explore = () => {
       className={`${styles.paddings} relative overflow-hidden`}
       id="work"
     >
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col relative z-10`}
-      >
-        {/* Header mejorado */}
-        <motion.div className="text-center mb-16" variants={containerVariants}>
-          {/* Indicador con línea */}
-          <motion.div
-            className="flex items-center justify-center gap-4 mb-6"
-            variants={itemVariants}
-          >
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
               Nuestros Trabajos
             </span>
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-cyan-400" />
-          </motion.div>
+          </div>
 
-          {/* Título principal */}
-          <motion.h2
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-            variants={itemVariants}
-          >
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
               Explora Nuestro
             </span>
@@ -74,90 +105,65 @@ const Explore = () => {
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Trabajo
             </span>
-          </motion.h2>
+          </h2>
 
-          {/* Subtítulo */}
-          <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-            variants={itemVariants}
-          >
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Cada proyecto es una historia única. Descubre cómo transformamos
-            ideas en
+            ideas en{" "}
             <span className="text-cyan-400 font-semibold">
-              {" "}
               experiencias digitales extraordinarias
             </span>
             que conectan con las audiencias y generan resultados.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Grid de proyectos - Tamaño completo */}
-        <motion.div
-          className="flex flex-row xs:flex-col sm:flex-col w-full gap-5"
-          variants={containerVariants}
+        <div
+          className="relative w-full max-w-6xl mx-auto mb-12 select-none"
+          style={{ perspective: "1200px", height: "600px" }}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          {exploreWorlds.map((world, index) => (
-            <ExploreCard
-              key={world.id}
-              {...world}
-              index={index}
-              active={active}
-              handleClick={setActive}
+          <button
+            onClick={goToPrevious}
+            className="absolute -left-16 top-1/2 transform -translate-y-1/2 z-30 bg-slate-800/60 hover:bg-slate-700/80 text-white p-2 rounded-full shadow-lg hidden xl:flex"
+          >
+            ←
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute -right-16 top-1/2 transform -translate-y-1/2 z-30 bg-slate-800/60 hover:bg-slate-700/80 text-white p-2 rounded-full shadow-lg hidden xl:flex"
+          >
+            →
+          </button>
+
+          {exploreWorlds.map((project, index) => (
+            <ProjectCarouselCard
+              key={project.id}
+              project={project}
+              isActive={index === activeIndex}
+              isDragging={isDragging}
+              onClick={() => !isDragging && setActiveIndex(index)}
+              cardStyle={getCardStyle(index)}
             />
           ))}
-        </motion.div>
+        </div>
 
-        {/* Call to Action */}
-        <motion.div className="text-center mt-16" variants={itemVariants}>
-          <motion.div
-            className="inline-flex flex-col sm:flex-row gap-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl text-white font-semibold shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Ver Todos los Proyectos
-            </motion.button>
-
-            <motion.button
-              className="px-8 py-4 border-2 border-cyan-400/50 rounded-xl text-cyan-400 font-semibold hover:bg-cyan-400/10 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Solicitar Presupuesto
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
-        {/* Estadísticas de proyectos */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-gray-800"
-          variants={containerVariants}
-        >
-          {[
-            { number: "50+", label: "Proyectos Completados" },
-            { number: "100%", label: "Clientes Satisfechos" },
-            { number: "24/7", label: "Soporte Técnico" },
-            { number: "5★", label: "Calificación Promedio" },
-          ].map((stat, index) => (
-            <motion.div
+        <div className="flex justify-center gap-3">
+          {exploreWorlds.map((_, index) => (
+            <button
               key={index}
-              className="text-center group"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2 group-hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.6)] transition-all duration-300">
-                {stat.number}
-              </div>
-              <div className="text-gray-400 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </motion.div>
+              onClick={() => setActiveIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === activeIndex
+                  ? "bg-cyan-400 scale-125"
+                  : "bg-gray-600 hover:bg-gray-400"
+              }`}
+            />
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
