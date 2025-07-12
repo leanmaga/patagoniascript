@@ -9,7 +9,7 @@ import {
   GetStarted,
   Insights,
   WhatsNew,
-  World,
+  // World,
   Explore,
 } from "../sections";
 
@@ -54,7 +54,7 @@ const Page = () => {
         <div className="gradient-04 z-0" />
         <WhatsNew />
 
-        <World />
+        {/* <World /> */}
 
         <Insights />
         <div className="gradient-04 z-0" />
