@@ -194,18 +194,18 @@ const Insights = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Botones de navegación (solo desktop) */}
+          {/* Botones de navegación - Posicionados más afuera */}
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 
-                       bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
-                       text-white p-3 rounded-full shadow-lg
-                       transition-all duration-300 hover:scale-110
-                       hidden md:flex items-center justify-center"
+            className="absolute -left-16 top-1/2 transform -translate-y-1/2 z-30 
+                       bg-slate-800/60 hover:bg-slate-700/80 backdrop-blur-sm
+                       text-white p-2 rounded-full shadow-lg
+                       transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
+                       hidden xl:flex items-center justify-center"
             aria-label="Tarjeta anterior"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -221,15 +221,15 @@ const Insights = () => {
 
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-30
-                       bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
-                       text-white p-3 rounded-full shadow-lg
-                       transition-all duration-300 hover:scale-110
-                       hidden md:flex items-center justify-center"
+            className="absolute -right-16 top-1/2 transform -translate-y-1/2 z-30
+                       bg-slate-800/60 hover:bg-slate-700/80 backdrop-blur-sm
+                       text-white p-2 rounded-full shadow-lg
+                       transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
+                       hidden xl:flex items-center justify-center"
             aria-label="Siguiente tarjeta"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -388,6 +388,22 @@ const Insights = () => {
 
         {/* Indicadores de navegación */}
         <div className="text-center">
+          {/* Indicador de swipe (solo en móvil) */}
+          <div className="mb-3 md:hidden">
+            <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
+              <span className="animate-pulse">👈</span>
+              Desliza para cambiar
+              <span className="animate-pulse">👉</span>
+            </p>
+          </div>
+
+          {/* Indicador de teclado (solo en desktop) */}
+          <div className="mb-4 hidden md:block">
+            <p className="text-gray-500 text-xs">
+              Usa las flechas del teclado ← → para navegar
+            </p>
+          </div>
+
           {/* Puntos indicadores */}
           <div className="flex justify-center gap-3">
             {packages.map((_, index) => (
