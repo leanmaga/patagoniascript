@@ -195,7 +195,7 @@ const Insights = () => {
           onTouchEnd={onTouchEnd}
         >
           {/* Botones de navegación (solo desktop) */}
-          {/* <button
+          <button
             onClick={goToPrevious}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 
                        bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
@@ -241,7 +241,7 @@ const Insights = () => {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </button> */}
+          </button>
 
           {/* Tarjetas */}
           {packages.map((pkg, index) => {
