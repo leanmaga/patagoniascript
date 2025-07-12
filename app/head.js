@@ -4,89 +4,94 @@ import "../styles/globals.css";
 const MyApp = ({ Component, pageProps }) => (
   <>
     <Head>
-      <title>
-        Diseño y Desarrollo Web Profesional en Patagonia y Buenos Aires |
-        PatagoniaScript
-      </title>
-      <meta
-        name="description"
-        content="🚀 Desarrollo web profesional desde Patagonia y Buenos Aires. Landing pages, e-commerce y sitios web personalizados. ¡Transformamos tu idea en realidad digital!"
-      />
-      <meta name="robots" content="index, follow" />
+      {/* Meta tags básicas PRIMERO */}
+      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="canonical" href="https://patagoniascript.vercel.app/" />
-      <meta name="author" content="PatagoniaScript" />
 
-      {/* Meta etiquetas esenciales para WhatsApp y redes sociales */}
+      {/* CRÍTICO: Open Graph tags deben ir TEMPRANO y ser EXPLÍCITAS */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="PatagoniaScript" />
       <meta property="og:locale" content="es_AR" />
+      <meta property="og:url" content="https://patagoniascript.vercel.app/" />
+
+      {/* Título explícito SIN emojis para mayor compatibilidad */}
       <meta
         property="og:title"
-        content="🚀 PatagoniaScript - Desarrollo Web Profesional"
+        content="PatagoniaScript - Desarrollo Web Profesional en Patagonia y Buenos Aires"
       />
+
+      {/* Descripción explícita SIN emojis */}
       <meta
         property="og:description"
-        content="💻 Desarrollo web profesional desde Patagonia y Buenos Aires. Landing pages, e-commerce y sitios web personalizados. ¡Transformamos tu idea en realidad digital!"
+        content="Somos un equipo apasionado por el diseño web, comprometidos a dar vida a tus ideas en el vasto mundo digital. Desarrollo web profesional desde Patagonia y Buenos Aires."
       />
-      <meta property="og:url" content="https://patagoniascript.vercel.app/" />
+
+      {/* IMAGEN: Todas las propiedades explícitas que requiere WhatsApp */}
       <meta
         property="og:image"
         content="https://patagoniascript.vercel.app/logo.png"
       />
+      <meta
+        property="og:image:secure_url"
+        content="https://patagoniascript.vercel.app/logo.png"
+      />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta
         property="og:image:alt"
         content="PatagoniaScript - Desarrollo Web Profesional"
       />
-      <meta property="og:image:type" content="image/png" />
 
-      {/* Meta etiquetas específicas para WhatsApp */}
+      {/* Title y description normales para SEO */}
+      <title>
+        Diseño y Desarrollo Web Profesional en Patagonia y Buenos Aires |
+        PatagoniaScript
+      </title>
       <meta
-        property="whatsapp:title"
-        content="🚀 PatagoniaScript - Desarrollo Web"
-      />
-      <meta
-        property="whatsapp:description"
-        content="💻 Desarrollo web profesional desde Patagonia y Buenos Aires. ¡Transformamos tu idea en realidad digital!"
-      />
-      <meta
-        property="whatsapp:image"
-        content="https://patagoniascript.vercel.app/logo.png"
+        name="description"
+        content="Somos un equipo apasionado por el diseño web, comprometidos a dar vida a tus ideas en el vasto mundo digital. Con sedes en la Patagonia y Buenos Aires, conectamos tu visión con el mundo."
       />
 
-      {/* Twitter Cards (también usado por algunas plataformas) */}
+      {/* Twitter Cards con propiedades explícitas */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@patagoniascript" />
+      <meta name="twitter:creator" content="@patagoniascript" />
       <meta
         name="twitter:title"
-        content="🚀 PatagoniaScript - Desarrollo Web Profesional"
+        content="PatagoniaScript - Desarrollo Web Profesional"
       />
       <meta
         name="twitter:description"
-        content="💻 Desarrollo web profesional desde Patagonia y Buenos Aires. Landing pages, e-commerce y sitios personalizados."
+        content="Desarrollo web profesional desde Patagonia y Buenos Aires. Landing pages, e-commerce y sitios personalizados."
       />
       <meta
         name="twitter:image"
         content="https://patagoniascript.vercel.app/logo.png"
       />
+      <meta name="twitter:image:alt" content="PatagoniaScript Logo" />
+
+      {/* Meta adicionales para WhatsApp */}
       <meta
-        name="twitter:image:alt"
-        content="PatagoniaScript - Desarrollo Web Profesional"
+        name="image"
+        content="https://patagoniascript.vercel.app/logo.png"
+      />
+      <meta
+        name="thumbnail"
+        content="https://patagoniascript.vercel.app/logo.png"
       />
 
-      {/* Meta etiquetas adicionales para mejor SEO */}
+      {/* Meta tags estándar */}
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="PatagoniaScript" />
       <meta name="theme-color" content="#06b6d4" />
-      <meta name="msapplication-TileColor" content="#06b6d4" />
+      <link rel="canonical" href="https://patagoniascript.vercel.app/" />
 
       {/* Favicons */}
       <link rel="icon" href="/logo.png" />
       <link rel="apple-touch-icon" href="/logo.png" />
 
-      {/* Preconnect para mejor rendimiento */}
-      <link rel="preconnect" href="https://patagoniascript.vercel.app/" />
-
-      {/* JSON-LD para SEO estructurado */}
+      {/* JSON-LD estructurado */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -97,7 +102,13 @@ const MyApp = ({ Component, pageProps }) => (
             description:
               "Desarrollo web profesional desde Patagonia y Buenos Aires",
             url: "https://patagoniascript.vercel.app/",
-            logo: "https://patagoniascript.vercel.app/logo.png",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://patagoniascript.vercel.app/logo.png",
+              width: 1200,
+              height: 630,
+            },
+            image: "https://patagoniascript.vercel.app/logo.png",
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+54-911-2776-4823",
