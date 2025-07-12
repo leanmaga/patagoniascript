@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Insights = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -66,7 +66,7 @@ const Insights = () => {
     },
   ];
 
-  // Funciones de navegación (necesarias para el swipe)
+  // Funciones de navegación
   const goToNext = () => {
     setActiveIndex((prev) => (prev + 1) % packages.length);
   };
@@ -98,6 +98,20 @@ const Insights = () => {
       goToPrevious();
     }
   };
+
+  // Navegación con teclado
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (e.key === "ArrowRight") {
+        goToNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const getCardStyle = (index) => {
     const position = index - activeIndex;
@@ -180,6 +194,55 @@ const Insights = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
+          {/* Botones de navegación (solo desktop) */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 
+                       bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
+                       text-white p-3 rounded-full shadow-lg
+                       transition-all duration-300 hover:scale-110
+                       hidden md:flex items-center justify-center"
+            aria-label="Tarjeta anterior"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-30
+                       bg-slate-800/80 hover:bg-slate-700/80 backdrop-blur-sm
+                       text-white p-3 rounded-full shadow-lg
+                       transition-all duration-300 hover:scale-110
+                       hidden md:flex items-center justify-center"
+            aria-label="Siguiente tarjeta"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
           {/* Tarjetas */}
           {packages.map((pkg, index) => {
             const isActive = index === activeIndex;
@@ -326,11 +389,18 @@ const Insights = () => {
         {/* Indicadores de navegación */}
         <div className="text-center">
           {/* Indicador de swipe (solo en móvil) */}
-          <div className="mb-4 md:hidden">
+          <div className="mb-3 md:hidden">
             <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
               <span className="animate-pulse">👈</span>
               Desliza para cambiar
               <span className="animate-pulse">👉</span>
+            </p>
+          </div>
+
+          {/* Indicador de teclado (solo en desktop) */}
+          <div className="mb-4 hidden md:block">
+            <p className="text-gray-500 text-xs">
+              Usa las flechas del teclado ← → para navegar
             </p>
           </div>
 
