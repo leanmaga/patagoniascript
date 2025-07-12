@@ -66,6 +66,15 @@ const Insights = () => {
     },
   ];
 
+  // Funciones de navegación (necesarias para el swipe)
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev + 1) % packages.length);
+  };
+
+  const goToPrevious = () => {
+    setActiveIndex((prev) => (prev - 1 + packages.length) % packages.length);
+  };
+
   // Funciones para manejar el swipe
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -84,9 +93,9 @@ const Insights = () => {
     const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe) {
-      setActiveIndex((prev) => (prev + 1) % packages.length);
+      goToNext();
     } else if (isRightSwipe) {
-      setActiveIndex((prev) => (prev - 1 + packages.length) % packages.length);
+      goToPrevious();
     }
   };
 
