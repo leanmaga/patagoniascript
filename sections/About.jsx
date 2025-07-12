@@ -30,21 +30,7 @@ const About = () => {
   };
 
   return (
-    <section
-      id="about"
-      className={`${styles.yPaddings} relative bg-gradient-to-br from-black via-slate-900 to-black overflow-hidden`}
-    >
-      {/* Efectos de fondo */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      </div>
-
-      {/* Grid de fondo sutil */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
-
+    <section id="about" className={`${styles.yPaddings} relative`}>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

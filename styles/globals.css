@@ -255,3 +255,77 @@ span ._5mdd {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(6, 182, 212, 0.5);
 }
+
+/* Agregar a tu archivo CSS global (globals.css) */
+
+/* Gradiente radial personalizado */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Animaciones personalizadas */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clases de utilidad */
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+/* Mejorar el scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Asegurar que no haya saltos en las transiciones */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimización para móviles */
+@media (max-width: 768px) {
+  .bg-gradient-radial {
+    background-size: 200% 200%;
+  }
+}

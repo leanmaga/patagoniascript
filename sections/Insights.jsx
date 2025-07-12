@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import styles from "../styles";
 
 const Insights = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -152,13 +153,10 @@ const Insights = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-black to-slate-900 overflow-hidden py-16 px-8">
-      {/* Efectos de fondo */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-      </div>
-
+    <section
+      className={`${styles.paddings} relative overflow-hidden`}
+      id="explore"
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">

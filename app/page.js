@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Nav, ContactForm, Footer } from "../components";
+import UnifiedBackground from "../components/UnifiedBackground";
 import {
   Hero,
   About,
@@ -40,35 +41,32 @@ const Page = () => {
       {/* Usa el componente Nav con la prop show */}
       <Nav show={showNavbar} />
 
+      {/* Hero mantiene su propio estilo */}
       <Hero />
 
-      <div className="relative">
+      {/* Todas las demás secciones con fondo unificado */}
+      <UnifiedBackground>
         <About />
         <div className="gradient-03 z-0" />
         <Explore />
-      </div>
 
-      <div className="relative">
         <GetStarted />
         <div className="gradient-04 z-0" />
         <WhatsNew />
-      </div>
 
-      <World />
+        <World />
 
-      <div className="relative">
         <Insights />
         <div className="gradient-04 z-0" />
         <Feedback />
-      </div>
-      <div className="relative">
-        <ContactForm />
-      </div>
 
-      {/* Footer con referencia */}
-      <div ref={footerRef}>
-        <Footer />
-      </div>
+        <ContactForm />
+
+        {/* Footer con referencia */}
+        <div ref={footerRef}>
+          <Footer />
+        </div>
+      </UnifiedBackground>
     </div>
   );
 };

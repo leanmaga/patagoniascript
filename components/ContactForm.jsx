@@ -11,10 +11,7 @@ const ContactForm = () => {
 
   if (state.succeeded) {
     return (
-      <section
-        className="h-[100vh] bg-gradient-to-br from-slate-900 via-black to-slate-900 relative overflow-hidden"
-        id="contact"
-      >
+      <section className="h-[100vh] relative overflow-hidden" id="contact">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div
             variants={fadeIn("up", 0.3)}
@@ -31,15 +28,7 @@ const ContactForm = () => {
   }
 
   return (
-    <section
-      className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-900 relative overflow-hidden"
-      id="contact"
-    >
-      {/* Efectos de fondo */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
-
+    <section className="py-16 relative overflow-hidden" id="contact">
       <div className="max-w-3xl mx-auto px-6 z-10 relative flex flex-col lg:flex-row gap-12 items-center">
         {/* Texto y redes */}
         <motion.div

@@ -19,8 +19,8 @@ const Nav = ({ show = true }) => {
   const navItems = [
     { id: "home", icon: BiHomeAlt, label: "Inicio" },
     { id: "about", icon: BiUser, label: "Nosotros" },
-    { id: "explore", icon: BsClipboardData, label: "Servicios" },
     { id: "work", icon: BsBriefcase, label: "Trabajo" },
+    { id: "explore", icon: BsClipboardData, label: "Servicios" },
     { id: "contact", icon: BsChatSquareText, label: "Contacto" },
   ];
 

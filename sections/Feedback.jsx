@@ -30,45 +30,7 @@ const Feedback = () => {
   };
 
   return (
-    <section
-      className={`${styles.paddings} relative bg-gradient-to-br from-slate-900 via-black to-slate-900 overflow-hidden`}
-    >
-      {/* Fondos y decoraciones */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-spin-slow" />
-      </div>
-
-      <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
-
-      {/* Efectos de partículas */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-              y: [-15, -30, -15],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              delay: i * 0.5,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-
+    <section className={`${styles.paddings} relative overflow-hidden`}>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

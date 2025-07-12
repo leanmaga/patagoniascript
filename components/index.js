@@ -5,6 +5,7 @@ import NewFeatures from "./NewFeatures";
 import Footer from "./Footer";
 import ContactForm from "./ContactForm";
 import Nav from "./Nav";
+import UnifiedBackground from "./UnifiedBackground";
 
 export {
   TitleText,
@@ -16,4 +17,5 @@ export {
   Footer,
   ContactForm,
   Nav,
+  UnifiedBackground,
 };
