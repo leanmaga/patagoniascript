@@ -17,7 +17,7 @@ const ProjectCarouselCard = ({
       style={{
         ...cardStyle,
         width: "380px",
-        height: "550px",
+        height: "450px",
         marginLeft: "-190px",
         marginTop: "-275px",
         transformOrigin: "center center",
@@ -59,18 +59,16 @@ const ProjectCarouselCard = ({
           ))}
         </div>
 
-        <p className="text-xs text-gray-300 flex-1 mb-4">
-          Diseño moderno con funcionalidad avanzada para crear resultados
-          excepcionales.
-        </p>
-
-        <motion.button
-          className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg text-sm shadow-lg hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Ver Proyecto
-        </motion.button>
+        <p className="text-xs text-gray-300 flex-1 mb-4">{project.subtitle}</p>
+        <a href={project.url} target="_blank" rel="noopener noreferrer">
+          <motion.button
+            className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg text-sm shadow-lg hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Ver Proyecto
+          </motion.button>
+        </a>
       </div>
     </div>
   );

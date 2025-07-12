@@ -1,133 +1,90 @@
-export const exploreWorlds = [
-    {
-      id: 'world-1',
-      imgUrl: '/gym.jpg',
-      title: 'Gym',
-    },
-    {
-      id: 'world-2',
-      imgUrl: '/sele.png',
-      title: 'Sele-Style',
-    },
-    {
-      id: 'world-3',
-      imgUrl: '/stitch.jpg',
-      title: 'Artesanias Stitch',
-    },
-    {
-      id: 'world-4',
-      imgUrl: '/muebles.png',
-      title: 'Muebles Magallanes',
-    },
-    {
-      id: 'world-5',
-      imgUrl: '/frank.png',
-      title: 'Amway Ventas',
-    },
-  ];
-  
-  export const startingFeatures = [
-    {
-      imgUrl: '/next-js.svg',
-      title: 'Next.js',
-      subtitle:
-          'Framework de React que permite el rendereo del lado del servidor y la generación de páginas estáticas, mejorando el rendimiento.',
-    },
-    {
-      imgUrl: '/js.svg',
-      title: 'JavaScript',
-      subtitle:
-          'Para interactividad en el lado del cliente y funcionalidades dinámicas.',
-    },
-    {
-      imgUrl: '/firebase.svg',
-      title: 'Firebase',
-      subtitle:
-          'Plataforma de desarrollo de aplicaciones web y móviles con funcionalidades en tiempo real.',
-    },
-  ];
-  
-  export const newFeatures = [
-    {
-      imgUrl: '/tailwind.svg',
-      title: 'Tailwind',
-      subtitle:
-          'Sumérgete en la vanguardia del diseño web con Tailwind CSS, nuestra herramienta preferida para la creación de interfaces elegantes y modernas',
-    },
-    {
-      imgUrl: '/mailchimp.svg',
-      title: 'MailChimp',
-      subtitle:
-          'Descubre las Últimas Funcionalidades de nuestra Plataforma de Marketing por Email.',
-    },
-  ];
-  
-  export const insights = [
-    {
-      imgUrl: '/planet-02.png',
-      title: 'De la Idea a la Celebración: Landing Pages de Eventos Memorables',
-      subtitle:
-          'Cautiva a tu audiencia desde el primer clic con nuestra landing page diseñada para eventos. Ya sea que estés planeando una conferencia, boda o lanzamiento, creamos una experiencia digital que anticipa y celebra tu evento. Desde detalles logísticos hasta momentos emocionantes, nuestra landing page garantiza que cada visitante esté emocionado por lo que está por venir.',
-    },
-    {
-      imgUrl: '/planet-01.png',
-      title: 'Tu Historia Visual: Portafolios Impresionantes',
-      subtitle:
-          'Destaca tu trabajo de manera única con nuestro servicio de creación de portafolios. Desde artistas hasta profesionales independientes, te ayudamos a contar tu historia visual de manera impactante. Nuestra landing page personalizada resalta tus mejores proyectos, habilidades y logros, asegurando que dejes una impresión duradera en quienes visitan tu portafolio en línea.',
-    },
-    
-    {
-      imgUrl: '/planet-03.png',
-      title: 'Vende con Estilo: Landing Pages para Productos Irresistibles',
-      subtitle:
-          'Lleva tus productos al siguiente nivel con nuestra landing page de presentación de ventas. Cautivadora y persuasiva, nuestra página resalta las características únicas de tu producto, cuenta su historia y motiva a los visitantes a dar el siguiente paso. Maximiza tus conversiones y brinda a tus clientes potenciales una experiencia de compra que no olvidarán.',
-    },
-  ];
-  
-  export const socials = [
-    {
-      name: 'twitter',
-      url: '/twitter.svg',
-      link: 'https://twitter.com/Le_Mark2023',
-    },
-    {
-      name: 'linkedin',
-      url: '/linkedin.svg',
-      link: 'https://www.linkedin.com/company/patagoniascript/',
+export const projects = [
+  {
+    id: "world-1",
+    imgUrl: "/prestamosapp.png",
+    title: "PréstamosApp",
+    subtitle: "Gestión de clientes, préstamos y cuotas con estadísticas claras",
+    tags: ["Next.js", "Tailwind", "Redux", "Finanzas"],
+    url: "https://creditapp-seven.vercel.app/",
+  },
+  {
+    id: "world-2",
+    imgUrl: "/indumentariasoffy.png",
+    title: "IndumentariaSoffy",
+    subtitle:
+      "Tienda online de moda femenina: prendas trendy, envío a todo el país y facilidades de pago",
+    tags: ["E-commerce", "React", "Estilo"],
+    url: "https://indumentariasoffy.vercel.app/",
+  },
+  {
+    id: "world-3",
+    imgUrl: "/stitch.jpg",
+    title: "Artesanías Stitch",
+    subtitle:
+      "Catálogo de artesanías personalizadas: tejidos, decoración y regalos únicos",
+    tags: ["Artesanías", "Landing Page", "Creatividad"],
+    url: "#", // Agregá la URL real si la tenés
+  },
+  {
+    id: "world-4",
+    imgUrl: "/invitacion.png",
+    title: "Invitaciones virtuales",
+    subtitle:
+      "Invitaciones digitales interactivas: eco‑friendly, personalizadas y fáciles de compartir",
+    tags: ["Eventos", "HTML Animado", "Interactividad"],
+    url: "https://invitacion-zahira.vercel.app/",
+  },
+  {
+    id: "world-5",
+    imgUrl: "/balanceapp.png",
+    title: "BalanceApp",
+    subtitle:
+      "Herramienta para organizar ingresos, egresos y visualizar balances personales",
+    tags: ["Finanzas", "Visualización", "Next.js"],
+    url: "https://mybalancesapp.vercel.app/",
+  },
+  {
+    id: "world-6",
+    imgUrl: "/globdeco.png",
+    title: "Glob Deco",
+    subtitle: "Decoración con globos para eventos sociales y temáticos",
+    tags: ["Eventos", "Decoración", "Landing Page"],
+    url: "https://glob-deco.vercel.app/",
+  },
+];
 
-    },
-    {
-      name: 'instagram',
-      url: '/instagram.svg',
-      link: 'https://instagram.com/patagonia.script',
-    },
-    {
-      name: 'facebook',
-      url: '/facebook.svg',
-      link: 'https://www.facebook.com/profile.php?id=100072302191154',
-    },
-  ];
+export const startingFeatures = [
+  {
+    imgUrl: "/next-js.svg",
+    title: "Next.js",
+    subtitle:
+      "Framework de React que permite el rendereo del lado del servidor y la generación de páginas estáticas, mejorando el rendimiento.",
+  },
+  {
+    imgUrl: "/js.svg",
+    title: "JavaScript",
+    subtitle:
+      "Para interactividad en el lado del cliente y funcionalidades dinámicas.",
+  },
+  {
+    imgUrl: "/firebase.svg",
+    title: "Firebase",
+    subtitle:
+      "Plataforma de desarrollo de aplicaciones web y móviles con funcionalidades en tiempo real.",
+  },
+];
 
-  export const navLinks = [
-    {
-      id: "hero",
-      title: "Inicio",
-    },
-    {
-      id: "about",
-      title: "Sobre mi",
-    },
-    {
-      id: "experience",
-      title: "Mis trabajos",
-    },
-    {
-      id: "feedbacks",
-      title: "Mis clientes"
-    },
-    {
-      id: "contact",
-      title: "Contáctame",
-    },
-  ];
-  
+export const newFeatures = [
+  {
+    imgUrl: "/tailwind.svg",
+    title: "Tailwind",
+    subtitle:
+      "Sumérgete en la vanguardia del diseño web con Tailwind CSS, nuestra herramienta preferida para la creación de interfaces elegantes y modernas",
+  },
+  {
+    imgUrl: "/mailchimp.svg",
+    title: "MailChimp",
+    subtitle:
+      "Descubre las Últimas Funcionalidades de nuestra Plataforma de Marketing por Email.",
+  },
+];

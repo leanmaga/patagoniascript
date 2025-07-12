@@ -3,8 +3,8 @@
 
 import { useState, useEffect } from "react";
 import styles from "../styles";
-import { exploreWorlds } from "../constants";
 import ProjectCarouselCard from "@/components/ProjectCarouselCard";
+import { projects } from "@/constants";
 
 const Explore = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,13 +15,11 @@ const Explore = () => {
   const minSwipeDistance = 50;
 
   const goToNext = () => {
-    setActiveIndex((prev) => (prev + 1) % exploreWorlds.length);
+    setActiveIndex((prev) => (prev + 1) % projects.length);
   };
 
   const goToPrevious = () => {
-    setActiveIndex(
-      (prev) => (prev - 1 + exploreWorlds.length) % exploreWorlds.length
-    );
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const onTouchStart = (e) => {
@@ -138,7 +136,7 @@ const Explore = () => {
             →
           </button>
 
-          {exploreWorlds.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCarouselCard
               key={project.id}
               project={project}
@@ -151,7 +149,7 @@ const Explore = () => {
         </div>
 
         <div className="flex justify-center gap-3">
-          {exploreWorlds.map((_, index) => (
+          {projects.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
