@@ -6,6 +6,7 @@ const Insights = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Mínima distancia para considerar un swipe válido
   const minSwipeDistance = 50;
@@ -75,14 +76,18 @@ const Insights = () => {
     setActiveIndex((prev) => (prev - 1 + packages.length) % packages.length);
   };
 
-  // Funciones para manejar el swipe
+  // Funciones para manejar el swipe mejoradas
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(false);
   };
 
   const onTouchMove = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
+    if (touchStart && Math.abs(touchStart - e.targetTouches[0].clientX) > 10) {
+      setIsDragging(true);
+    }
   };
 
   const onTouchEnd = () => {
@@ -97,6 +102,9 @@ const Insights = () => {
     } else if (isRightSwipe) {
       goToPrevious();
     }
+
+    // Reset dragging state after a short delay
+    setTimeout(() => setIsDragging(false), 100);
   };
 
   // Navegación con teclado
@@ -185,7 +193,7 @@ const Insights = () => {
 
         {/* Carousel 3D con Swipe */}
         <div
-          className="relative w-full max-w-6xl mx-auto mb-12 select-none touch-pan-x"
+          className="relative w-full max-w-6xl mx-auto mb-12 select-none"
           style={{
             perspective: "1200px",
             height: "600px",
@@ -194,7 +202,7 @@ const Insights = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Botones de navegación - Posicionados más afuera */}
+          {/* Botones de navegación - Solo en desktop */}
           <button
             onClick={goToPrevious}
             className="absolute -left-16 top-1/2 transform -translate-y-1/2 z-30 
@@ -261,9 +269,11 @@ const Insights = () => {
                   transformOrigin: "center center",
                   transformStyle: "preserve-3d",
                   transition: "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  pointerEvents: isDragging ? "none" : "auto",
                 }}
-                onClick={() => !isActive && setActiveIndex(index)}
-                onTouchStart={(e) => e.stopPropagation()}
+                onClick={() =>
+                  !isActive && !isDragging && setActiveIndex(index)
+                }
               >
                 {/* Badge "Más Popular" */}
                 {pkg.popular && isActive && (
@@ -388,8 +398,8 @@ const Insights = () => {
 
         {/* Indicadores de navegación */}
         <div className="text-center">
-          {/* Indicador de swipe (solo en móvil) */}
-          <div className="mb-3 md:hidden">
+          {/* Indicador de swipe - Solo en móvil/tablet */}
+          <div className="mb-4 block xl:hidden">
             <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
               <span className="animate-pulse">👈</span>
               Desliza para cambiar
@@ -397,14 +407,14 @@ const Insights = () => {
             </p>
           </div>
 
-          {/* Indicador de teclado (solo en desktop) */}
-          <div className="mb-4 hidden md:block">
+          {/* Indicador de teclado - Solo en desktop */}
+          <div className="mb-4 hidden xl:block">
             <p className="text-gray-500 text-xs">
               Usa las flechas del teclado ← → para navegar
             </p>
           </div>
 
-          {/* Puntos indicadores */}
+          {/* Puntos indicadores - Funcionan en todos los dispositivos */}
           <div className="flex justify-center gap-3">
             {packages.map((_, index) => (
               <button
@@ -418,6 +428,7 @@ const Insights = () => {
                       : "bg-gray-600 hover:bg-gray-400"
                   }
                 `}
+                aria-label={`Ir al paquete ${index + 1}`}
               />
             ))}
           </div>
