@@ -28,8 +28,6 @@ export async function POST(request) {
     const body = await request.json();
     const { name, handle, rating, message } = body;
 
-    console.log("Received data:", { name, handle, rating, message });
-
     // Validaciones
     if (!name || !rating) {
       return NextResponse.json(
@@ -58,8 +56,6 @@ export async function POST(request) {
       message: message ? message.trim() : "",
       isApproved: true, // ✅ Auto-aprobación activada
     });
-
-    console.log("Review created:", review);
 
     return NextResponse.json(
       {
