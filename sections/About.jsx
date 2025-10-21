@@ -80,11 +80,12 @@ const About = () => {
               >
                 "En PatagoniaScript, fusionamos la{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  pasión por la tecnología
+                  resiliencia y la ambición de la montaña
                 </span>{" "}
-                con la inspiración de la Patagonia para construir{" "}
+                con la tecnología de vanguardia{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  experiencias web únicas
+                  para construir sistemas que no solo funcionan, sino que
+                  escalan.
                 </span>
                 ."
               </motion.h3>
@@ -107,13 +108,14 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              Somos un equipo apasionado por el diseño web, comprometidos a dar
-              vida a tus ideas en el vasto mundo digital.
+              Somos un equipo experto, comprometido a llevar su visión al
+              siguiente nivel digital.{" "}
               <span className="text-cyan-400 font-semibold">
                 {" "}
-                Cada proyecto es una aventura
+                Cada línea de código está optimizada para la eficiencia y la
+                velocidad,
               </span>
-              , y cada línea de código cuenta una historia.
+              transformando retos empresariales en ventaja competitiva."
             </motion.p>
 
             <motion.p

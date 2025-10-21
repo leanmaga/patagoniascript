@@ -89,7 +89,7 @@ const Hero = () => (
                 target="_blank"
                 rel="noreferrer"
               >
-                Contáctanos
+                Agendá una Consultoría de Escalabilidad
               </a>
             </span>
           </motion.button>
