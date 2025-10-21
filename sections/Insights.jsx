@@ -17,62 +17,63 @@ const Insights = () => {
   const packages = [
     {
       id: 1,
-      name: "Paquete Básico",
-      subtitle: "Perfecto para emprendedores",
-      price: "$299",
-      color: "from-green-500 to-emerald-500",
+      name: "Solución Inicial",
+      subtitle: "La base sólida para tu negocio",
+      price: "$990", // Incremento significativo para establecer valor profesional
+      color: "from-green-600 to-emerald-700",
       popular: false,
       features: [
-        "Landing Page responsiva",
-        "Hasta 5 secciones",
-        "Formulario de contacto",
-        "Optimización SEO básica",
-        "2 revisiones incluidas",
-        "Hosting gratis 3 meses",
+        "Landing Page de Alto Rendimiento (SEO)",
+        "Estructura robusta (hasta 5 secciones)",
+        "Formulario de contacto avanzado con integración CRM básica",
+        "Optimización de velocidad (Core Web Vitals)",
+        "3 ciclos de revisión enfocados en UX",
+        "Configuración de entorno de despliegue",
       ],
+      cta: "Empezar con Sólidez",
     },
     {
       id: 2,
-      name: "Paquete Profesional",
-      subtitle: "Ideal para pequeñas empresas",
-      price: "$599",
-      color: "from-cyan-500 to-blue-500",
+      name: "Plataforma de Crecimiento",
+      subtitle: "Sistemas listos para escalar",
+      price: "$1.990", // Incremento para reflejar complejidad B2B
+      color: "from-blue-600 to-indigo-700",
       popular: true,
       features: [
-        "Sitio web completo (hasta 8 páginas)",
-        "Panel de administración",
-        "Blog integrado",
-        "Optimización SEO avanzada",
-        "Integración redes sociales",
-        "Analytics configurado",
-        "5 revisiones incluidas",
-        "Hosting gratis 6 meses",
+        "Sitio web o App Web Completa (hasta 8 vistas)",
+        "Panel de administración a medida",
+        "Integración de Backend y Base de Datos",
+        "Arquitectura modular para escalabilidad futura",
+        "Integración de servicios clave (Analytics, Redes)",
+        "5 ciclos de sprint y QA riguroso",
+        "Consultoría de estrategia digital (3 horas)",
       ],
+      cta: "Impulsar mi Crecimiento",
     },
     {
       id: 3,
-      name: "Paquete Premium",
-      subtitle: "Para proyectos complejos",
-      price: "$999",
-      color: "from-purple-500 to-pink-500",
+      name: "Desarrollo a Medida",
+      subtitle: "Tu siguiente cima digital (Proyectos complejos)",
+      price: "COTIZAR", // CRÍTICO: Eliminar el precio fijo de $999
+      color: "from-red-600 to-pink-700", // Usar un color más ambicioso y serio (rojo/vino)
       popular: false,
       features: [
-        "E-commerce completo",
-        "Gestión de productos",
-        "Pasarela de pagos",
-        "Sistema de usuarios",
-        "Dashboard administrativo",
-        "SEO y Marketing digital",
-        "Revisiones ilimitadas",
-        "Hosting gratis 1 año",
-        "Soporte técnico 3 meses",
+        "E-commerce o Plataforma SAAS de alto rendimiento",
+        "Arquitectura de Microservicios y API's",
+        "Integración de Pasarelas de Pago complejas y ERPs",
+        "Sistemas de usuarios y roles avanzados",
+        "Dashboard administrativo con Business Intelligence (BI)",
+        "Consultoría Estratégica y Arquitectura de Sistemas",
+        "Soporte técnico prioritario y revisiones ilimitadas",
       ],
+      cta: "Agenda una Consultoría", // CTA de alto valor, NO solo "Contactar por WhatsApp"
     },
   ];
 
   // Función para generar el enlace de WhatsApp con mensaje personalizado
-  const generateWhatsAppLink = (packageName, price) => {
-    const message = `¡Hola! 👋 Estoy interesado en el *${packageName}* (${price}). Me gustaría obtener más información sobre este plan. ¡Gracias!`;
+  const generateWhatsAppLink = (packageName, cta) => {
+    // Utilizamos el CTA en el mensaje para saber qué le interesa exactamente
+    const message = `¡Hola! 👋 Estoy interesado en el plan *${packageName}* y quiero *${cta}*. Me gustaría obtener más información. ¡Gracias!`;
     const encodedMessage = encodeURIComponent(message);
     return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   };
@@ -191,13 +192,12 @@ const Insights = () => {
           </h2>
 
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Elige el paquete perfecto para tu proyecto. Desde landing pages
-            hasta e-commerce completos,
+            Transformamos los desafíos más complejos en software robusto y
+            escalable.
             <span className="text-cyan-400 font-semibold">
               {" "}
-              tenemos la solución ideal
-            </span>{" "}
-            para hacer realidad tu visión digital.
+              Elige la solución que mejor se adapte a tu ambición.
+            </span>
           </p>
         </div>
 
@@ -415,7 +415,7 @@ const Insights = () => {
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.403" />
                       </svg>
                     )}
-                    {isActive ? "Contactar por WhatsApp" : "Ver Plan"}
+                    {isActive ? pkg.cta : "Ver Plan"}
                   </button>
                 </div>
               </div>

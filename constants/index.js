@@ -3,8 +3,13 @@ export const projects = [
     id: "world-1",
     imgUrl: "/prestamosapp.png",
     title: "PréstamosApp",
-    subtitle: "Gestión de clientes, préstamos y cuotas con estadísticas claras",
-    tags: ["Next.js", "Tailwind", "Redux", "Finanzas"],
+    subtitle:
+      "Plataforma Full-Stack para gestión de préstamos, clientes y cálculo de estadísticas financieras (TIR y Mora).",
+    desafio_tecnico:
+      "Implementación de una arquitectura escalable para datos sensibles de clientes y cálculos financieros complejos.",
+    solucion_clave:
+      "Next.js (SSR), Supabase para persistencia de datos y autenticación (CRUD).",
+    tags: ["Next.js", "Tailwind", "Finanzas", "Supabase", "Full-Stack"],
     url: "https://creditapp-seven.vercel.app/",
   },
   {
@@ -12,26 +17,52 @@ export const projects = [
     imgUrl: "/indumentariasoffy.png",
     title: "IndumentariaSoffy",
     subtitle:
-      "Tienda online de moda femenina: prendas trendy, envío a todo el país y facilidades de pago",
-    tags: ["E-commerce", "React", "Estilo"],
+      "Tienda online de moda femenina con flujo de compra completo, pasarela de pago y gestión de inventario.",
+    desafio_tecnico:
+      "Desarrollo de un checkout robusto y la integración de una pasarela de pago para una experiencia de usuario fluida.",
+    solucion_clave:
+      "React, estado gestionado con Context, integración en modo Sandbox de Mercado Pago y optimización de filtros de producto.",
+    tags: ["E-commerce", "React", "Estilo", "Mercado Pago API", "Inventario"],
     url: "https://indumentariasoffy.vercel.app/",
   },
   {
     id: "world-3",
-    imgUrl: "/stitch.jpg",
-    title: "Artesanías Stitch",
+    imgUrl: "/solcampestre.png",
+    title: "Sol Campestre (Real World E-commerce)",
     subtitle:
-      "Catálogo de artesanías personalizadas: tejidos, decoración y regalos únicos",
-    tags: ["Artesanías", "Landing Page", "Creatividad"],
-    url: "#", // Agregá la URL real si la tenés
+      "E-commerce B2C con gestión de stock, sincronización de pedidos y pasarela de pago real, enfocado en productos rurales.",
+    desafio_tecnico:
+      "Implementación de un flujo de E-commerce B2C con gestión de stock sincronizada y pago con Mercado Pago a través de la API.",
+    solucion_clave:
+      "Plataforma de E-commerce con integración completa de la API de Mercado Pago y optimización del tiempo de carga inicial a 1.8s.",
+    tags: [
+      "E-commerce",
+      "Comercio Electronico",
+      "Mercado Pago API",
+      "Métricas",
+      "Producción",
+    ],
+    url: "https://www.solcampestre.com/",
   },
   {
     id: "world-4",
     imgUrl: "/invitacion.png",
     title: "Invitaciones virtuales",
     subtitle:
-      "Invitaciones digitales interactivas: eco‑friendly, personalizadas y fáciles de compartir",
-    tags: ["Eventos", "HTML Animado", "Interactividad"],
+      "Invitaciones digitales animadas, interactivas y con funcionalidad de Confirmación de Asistencia (RSVP).",
+    desafio_tecnico:
+      "Crear una experiencia de usuario interactiva y gestionar las respuestas de los invitados de manera eficiente.",
+    solucion_clave:
+      "Next js, CSS y JavaScript para animaciones, galeria de fotos en Cloudinary y una integración simple con Supabase para registrar las respuestas de RSVP.",
+    tags: [
+      "Eventos",
+      "Next js",
+      "Tailwind",
+      "Interactividad",
+      "Supabase",
+      "RSVP",
+      "Cloudinary",
+    ],
     url: "https://invitacion-zahira.vercel.app/",
   },
   {
@@ -39,17 +70,58 @@ export const projects = [
     imgUrl: "/balanceapp.png",
     title: "BalanceApp",
     subtitle:
-      "Herramienta para organizar ingresos, egresos y visualizar balances personales",
-    tags: ["Finanzas", "Visualización", "Next.js"],
+      "Herramienta para organizar ingresos y egresos personales, incluyendo lógica de presupuestos y visualización de balances.",
+    desafio_tecnico:
+      "Implementar lógica de presupuestos mensuales y representar datos financieros de forma clara y accesible.",
+    solucion_clave:
+      "Next.js, uso de librería de gráficos (Recharts/Nivo) y una función de Presupuestos que calcula el gasto restante por categoría.",
+    tags: [
+      "Finanzas",
+      "Visualización",
+      "Next.js",
+      "Recharts",
+      "Lógica de Negocio",
+    ],
     url: "https://mybalancesapp.vercel.app/",
   },
   {
     id: "world-6",
     imgUrl: "/globdeco.png",
     title: "Glob Deco",
-    subtitle: "Decoración con globos para eventos sociales y temáticos",
-    tags: ["Eventos", "Decoración", "Landing Page"],
+    subtitle:
+      "Landing Page de servicios de decoración, enfocada en la optimización de rendimiento y galería filtrable.",
+    desafio_tecnico:
+      "Asegurar un rendimiento (Core Web Vitals) óptimo a pesar de incluir una galería de imágenes de alta calidad.",
+    solucion_clave:
+      "Optimización de imágenes (WebP), galería filtrable por tipo de evento (JavaScript) y medición de métricas LCP/CLS.",
+    tags: [
+      "Eventos",
+      "Decoración",
+      "Landing Page",
+      "Optimización Web",
+      "UX/UI",
+    ],
     url: "https://glob-deco.vercel.app/",
+  },
+  {
+    id: "world-7",
+    imgUrl: "/stitch.jpg",
+    title: "Artesanías Stitch",
+    subtitle:
+      "Catálogo interactivo con personalizador de productos y sistema de cotización directo a backend.",
+    desafio_tecnico:
+      "Convertir una página estática en una herramienta de marketing que capture clientes potenciales (leads).",
+    solucion_clave:
+      "Landing Page optimizada, uso de React para un 'Personalizador de Producto' simple y formulario integrado a Formspree/Lambda.",
+    tags: [
+      "Artesanías",
+      "Landing Page",
+      "Creatividad",
+      "UX/UI",
+      "Formspree",
+      "Three.js",
+    ],
+    url: "#", // Agregá la URL real si la tenés
   },
 ];
 
@@ -58,33 +130,33 @@ export const startingFeatures = [
     imgUrl: "/next-js.svg",
     title: "Next.js",
     subtitle:
-      "Framework de React que permite el rendereo del lado del servidor y la generación de páginas estáticas, mejorando el rendimiento.",
+      "Aceleramos el tiempo de carga y mejoramos el SEO mediante Server-Side Rendering (SSR) y Static Generation, ofreciendo la mejor performance.",
   },
   {
     imgUrl: "/js.svg",
-    title: "JavaScript",
+    title: "JavaScript (Moderno)",
     subtitle:
-      "Para interactividad en el lado del cliente y funcionalidades dinámicas.",
+      "Añadimos interactividad de vanguardia y garantizamos la funcionalidad dinámica con las últimas especificaciones de ECMAScript.",
   },
   {
     imgUrl: "/firebase.svg",
-    title: "Firebase",
+    title: "Firebase/Firestore",
     subtitle:
-      "Plataforma de desarrollo de aplicaciones web y móviles con funcionalidades en tiempo real.",
+      "Implementamos soluciones de backend y base de datos NoSQL en tiempo real para una escalabilidad rápida y autenticación robusta (BaaS).",
   },
 ];
 
 export const newFeatures = [
   {
     imgUrl: "/tailwind.svg",
-    title: "Tailwind",
+    title: "Diseño con Tailwind CSS",
     subtitle:
-      "Sumérgete en la vanguardia del diseño web con Tailwind CSS, nuestra herramienta preferida para la creación de interfaces elegantes y modernas",
+      "Creamos interfaces elegantes, modernas y totalmente responsivas a través de un enfoque de utilidad-first, asegurando una experiencia visual premium en cualquier dispositivo.",
   },
   {
     imgUrl: "/mailchimp.svg",
-    title: "MailChimp",
+    title: "Integración de Marketing (Ej. MailChimp)",
     subtitle:
-      "Descubre las Últimas Funcionalidades de nuestra Plataforma de Marketing por Email.",
+      "Conectamos tus aplicaciones con herramientas de email marketing para automatizar campañas, capturar leads y fomentar la retención de clientes de manera efectiva.",
   },
 ];
