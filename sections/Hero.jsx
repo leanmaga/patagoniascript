@@ -62,7 +62,7 @@ const Hero = () => (
           className="flex flex-row justify-center items-center p-8"
         >
           <h2 className={`${styles.heroSubtitle} pt-4 relative z-10`}>
-            "Dónde la creatividad se une con la funcionalidad"
+             "Tu negocio, en internet, en dos semanas."
           </h2>
         </motion.div>
 
@@ -89,7 +89,7 @@ const Hero = () => (
                 target="_blank"
                 rel="noreferrer"
               >
-                Agendá una Consultoría de Escalabilidad
+                 Hablemos sobre tu negocio
               </a>
             </span>
           </motion.button>

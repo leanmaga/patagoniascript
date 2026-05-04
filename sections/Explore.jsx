@@ -109,9 +109,9 @@ const Explore = () => {
             Cada proyecto es una historia única. Descubre cómo transformamos
             ideas en{" "}
             <span className="text-cyan-400 font-semibold">
-              experiencias digitales extraordinarias
+              experiencias digitales extraordinarias 
             </span>
-            que conectan con las audiencias y generan resultados.
+            {" "}que conectan con las audiencias y generan resultados.
           </p>
         </div>
 

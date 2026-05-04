@@ -2,17 +2,14 @@
 
 import { motion } from "framer-motion";
 import styles from "../styles";
-import { staggerContainer, textVariant, fadeIn } from "../utils/motion";
+import { staggerContainer } from "../utils/motion";
 
 const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 },
     },
   };
 
@@ -21,13 +18,15 @@ const About = () => {
     show: {
       y: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
+      transition: { type: "spring", stiffness: 100, damping: 10 },
     },
   };
+
+  const stats = [
+    { value: "+20", label: "proyectos entregados" },
+    { value: "2 sem", label: "tiempo promedio de entrega" },
+    { value: "100%", label: "clientes satisfechos" },
+  ];
 
   return (
     <section id="about" className={`${styles.yPaddings} relative`}>
@@ -42,33 +41,33 @@ const About = () => {
           variants={containerVariants}
           className="flex flex-col justify-center items-center max-w-5xl mx-auto text-center"
         >
-          {/* Indicador con línea */}
+          {/* Indicador */}
           <motion.div
             className="flex items-center justify-center gap-4 mb-8"
             variants={itemVariants}
           >
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
-              Nuestra Historia
+              Quiénes somos
             </span>
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-cyan-400" />
           </motion.div>
 
-          {/* Título principal */}
+          {/* Título */}
           <motion.h2
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8"
             variants={itemVariants}
           >
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
-              Nuestra
+              Hacemos crecer
             </span>
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Historia
+              tu negocio
             </span>
           </motion.h2>
 
-          {/* Subtítulo destacado */}
+          {/* Quote */}
           <motion.div className="relative mb-12" variants={itemVariants}>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 blur-xl rounded-2xl" />
             <blockquote className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-cyan-400/30 rounded-2xl p-8 shadow-2xl">
@@ -78,44 +77,38 @@ const About = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                "En PatagoniaScript, fusionamos la{" "}
+                "Sabemos lo que es{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  resiliencia y la ambición de la montaña
+                  empezar de cero con poco presupuesto
                 </span>{" "}
-                con la tecnología de vanguardia{" "}
+                y necesitar resultados reales.{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  para construir sistemas que no solo funcionan, sino que
-                  escalan.
+                  Por eso construimos soluciones que generan impacto desde el
+                  primer día.
                 </span>
-                ."
+                "
               </motion.h3>
-
-              {/* Comillas decorativas */}
-              <div className="absolute -top-4 -left-4 text-6xl text-cyan-400/30 font-serif">
-                "
-              </div>
-              <div className="absolute -bottom-8 -right-4 text-6xl text-cyan-400/30 font-serif">
-                "
-              </div>
+              <div className="absolute -top-4 -left-4 text-6xl text-cyan-400/30 font-serif">"</div>
+              <div className="absolute -bottom-8 -right-4 text-6xl text-cyan-400/30 font-serif">"</div>
             </blockquote>
           </motion.div>
 
-          {/* Descripción principal */}
-          <motion.div className="space-y-6 max-w-4xl" variants={itemVariants}>
+          {/* Descripción */}
+          <motion.div className="space-y-6 max-w-4xl mb-14" variants={itemVariants}>
             <motion.p
               className="text-lg md:text-xl text-gray-300 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              Somos un equipo experto, comprometido a llevar su visión al
-              siguiente nivel digital.{" "}
+              En{" "}
+              <span className="text-cyan-400 font-semibold">PatagoniaScript</span>{" "}
+              trabajamos con emprendedores y pymes que quieren dar el salto
+              digital sin perderse en tecnicismos ni gastar de más.{" "}
               <span className="text-cyan-400 font-semibold">
-                {" "}
-                Cada línea de código está optimizada para la eficiencia y la
-                velocidad,
+                Te acompañamos desde la idea hasta el lanzamiento
               </span>
-              transformando retos empresariales en ventaja competitiva."
+              , con foco en que tu inversión se traduzca en clientes reales.
             </motion.p>
 
             <motion.p
@@ -124,16 +117,36 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
-              Con sedes en la majestuosa{" "}
-              <span className="text-cyan-400 font-semibold">Patagonia</span> y{" "}
-              <span className="text-blue-400 font-semibold">Buenos Aires</span>,
-              nuestra misión es conectar tu visión con el mundo a través de la
-              <span className="text-cyan-400 font-semibold">
-                {" "}
-                magia de la web
+              Basados en{" "}
+              <span className="text-cyan-400 font-semibold">Buenos Aires</span>,
+              entendemos el contexto argentino: precios accesibles, comunicación
+              directa y{" "}
+              <span className="text-blue-400 font-semibold">
+                resultados que se ven en tu negocio
               </span>
-              .
+              , no solo en pantalla.
             </motion.p>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-3 gap-6 w-full max-w-2xl"
+            variants={itemVariants}
+          >
+            {stats.map((stat, i) => (
+              <motion.div
+                key={i}
+                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-slate-700/50 rounded-xl p-5 text-center hover:border-cyan-400/40 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0 + i * 0.15 }}
+              >
+                <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-gray-400 text-xs leading-snug">{stat.label}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </motion.div>
