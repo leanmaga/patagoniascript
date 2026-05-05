@@ -31,7 +31,7 @@ const Footer = () => (
           </div>
 
           <p className="font-normal text-[14px] text-white opacity-50">
-            Copyright © 2025 PatagoniaScript. All rights reserved.
+            Copyright © {new Date().getFullYear()} PatagoniaScript. All rights reserved.
           </p>
         </div>
       </div>
