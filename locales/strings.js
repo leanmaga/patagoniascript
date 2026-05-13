@@ -76,6 +76,30 @@ export const STRINGS = {
       viewPlan: "Ver plan",
       ars: "ARS",
     },
+    leadership: {
+      label: "Dirección",
+      title1: "Quién está",
+      title2: "al timón",
+      intro:
+        "Combinamos visión de producto, ingeniería full stack y foco en resultados para que tu proyecto salga a producción sin fricción.",
+      founderName: "Leandro Magallanes",
+      founderRole: "Fundador & CEO",
+      founderBio:
+        "Lidera la estrategia, la relación con clientes y la visión de producto. Fuerte background en desarrollo full stack (Next.js, React, Node), arquitectura de software y entregas iterativas. Se enfoca en traducir objetivos de negocio en roadmaps claros, priorizar lo que genera impacto y acompañar cada lanzamiento hasta que la solución quede estable en producción.",
+      founderTags:
+        "Full stack|Producto & roadmap|Next.js / React|Arquitectura|Performance|SEO técnico",
+      founderLinkedin: "https://www.linkedin.com/in/leandromagallanes/",
+      founderPhotoAlt: "Retrato de Leandro Magallanes, fundador de PatagoniaScript",
+      cofounderName: "",
+      cofounderBio:
+        "Lidera la ingeniería profunda: sistemas escalables, bases de datos, integraciones (pagos, ERPs, APIs), seguridad y DevOps. Experto en TypeScript, diseño de APIs, modelado de datos y calidad (testing, revisiones, estándares). Asegura que cada build sea mantenible, observable y listo para crecer con tu operación.",
+      cofounderTags:
+        "Full stack avanzado|Backend & APIs|MongoDB / SQL|Cloud & DevOps|Integraciones|Observabilidad",
+      cofounderLinkedin: "",
+      cofounderPhotoAlt: "Retrato del co-fundador de PatagoniaScript",
+      linkedinAria: "Perfil de LinkedIn",
+      linkedinLabel: "LinkedIn",
+    },
     feedback: {
       label: "Testimonios",
       title1: "Lo que dicen",
@@ -202,6 +226,30 @@ export const STRINGS = {
       trustEmoji: "💬",
       viewPlan: "View plan",
       ars: "ARS",
+    },
+    leadership: {
+      label: "Leadership",
+      title1: "Who steers",
+      title2: "the ship",
+      intro:
+        "We blend product vision, full-stack engineering, and a business-first mindset so your project ships smoothly to production.",
+      founderName: "Leandro Magallanes",
+      founderRole: "Founder & CEO",
+      founderBio:
+        "Leads strategy, client relationships, and product direction. Strong full-stack background (Next.js, React, Node), software architecture, and iterative delivery. Focuses on turning business goals into clear roadmaps, prioritizing high-impact work, and supporting every launch until the solution is stable in production.",
+      founderTags:
+        "Full stack|Product & roadmap|Next.js / React|Architecture|Performance|Technical SEO",
+      founderLinkedin: "https://www.linkedin.com/in/leandromagallanes/",
+      founderPhotoAlt: "Portrait of Leandro Magallanes, founder of PatagoniaScript",
+      cofounderName: "",
+      cofounderBio:
+        "Leads deep engineering: scalable systems, databases, integrations (payments, ERPs, APIs), security, and DevOps. Expert in TypeScript, API design, data modeling, and quality (testing, reviews, standards). Ensures every build is maintainable, observable, and ready to grow with your operations.",
+      cofounderTags:
+        "Advanced full stack|Backend & APIs|MongoDB / SQL|Cloud & DevOps|Integrations|Observability",
+      cofounderLinkedin: "",
+      cofounderPhotoAlt: "Portrait of the PatagoniaScript co-founder",
+      linkedinAria: "LinkedIn profile",
+      linkedinLabel: "LinkedIn",
     },
     feedback: {
       label: "Testimonials",

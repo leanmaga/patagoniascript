@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Nav, ContactForm, Footer } from "../components";
+import { Nav, ContactForm, Footer, Leadership } from "../components";
 import UnifiedBackground from "../components/UnifiedBackground";
 import {
   Hero,
@@ -57,6 +57,8 @@ const Page = () => {
         {/* <World /> */}
 
         <Insights />
+        <div className="gradient-04 z-0" />
+        <Leadership />
         <div className="gradient-04 z-0" />
         <Feedback />
 
