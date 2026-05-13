@@ -1,12 +1,14 @@
 // app/sections/Explore.jsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import styles from "../styles";
 import ProjectCarouselCard from "@/components/ProjectCarouselCard";
 import { projects } from "@/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Explore = () => {
+  const { t, localizeProject } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -57,6 +59,11 @@ const Explore = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const localizedProjects = useMemo(
+    () => projects.map((p) => localizeProject(p)),
+    [localizeProject]
+  );
+
   const getCardStyle = (index) => {
     const position = index - activeIndex;
     if (position === 0)
@@ -90,28 +97,27 @@ const Explore = () => {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
-              Nuestros Trabajos
+              {t("explore.label")}
             </span>
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-cyan-400" />
           </div>
 
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
-              Explora Nuestro
+              {t("explore.title1")}
             </span>
             <br className="md:block hidden" />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Trabajo
+              {t("explore.title2")}
             </span>
           </h2>
 
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Cada proyecto es una historia única. Descubre cómo transformamos
-            ideas en{" "}
+            {t("explore.body")}{" "}
             <span className="text-cyan-400 font-semibold">
-              experiencias digitales extraordinarias 
-            </span>
-            {" "}que conectan con las audiencias y generan resultados.
+              {t("explore.bodyBold")}
+            </span>{" "}
+            {t("explore.bodyEnd")}
           </p>
         </div>
 
@@ -136,7 +142,7 @@ const Explore = () => {
             →
           </button>
 
-          {projects.map((project, index) => (
+          {localizedProjects.map((project, index) => (
             <ProjectCarouselCard
               key={project.id}
               project={project}

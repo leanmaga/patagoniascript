@@ -1,86 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Insights = () => {
+  const { t, insightPlans: packages } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(1);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const minSwipeDistance = 50;
-  const whatsappNumber = "5491127764823";
 
-  const packages = [
-    {
-      id: 1,
-      name: "Presencia Digital",
-      subtitle: "Ideal para emprendedores que arrancan",
-      price: "$120.000",
-      badge: null,
-      color: "from-emerald-500 to-teal-600",
-      popular: false,
-      pitch: "Tu negocio en internet en menos de 2 semanas.",
-      features: [
-        "Landing Page profesional (hasta 5 secciones)",
-        "Diseño mobile-first y responsive",
-        "Formulario de contacto funcional",
-        "Optimización de velocidad (Core Web Vitals)",
-        "Integración con WhatsApp Business",
-        "3 rondas de revisión incluidas",
-        "Entrega en Vercel o dominio propio",
-      ],
-      cta: "Quiero mi sitio web",
-    },
-    {
-      id: 2,
-      name: "Pyme Digital",
-      subtitle: "Para negocios que quieren vender más",
-      price: "$280.000",
-      badge: "Más elegido",
-      color: "from-blue-500 to-indigo-600",
-      popular: true,
-      pitch: "Un sistema completo para gestionar y hacer crecer tu negocio.",
-      features: [
-        "Sitio web o tienda online completa (hasta 8 vistas)",
-        "Panel de administración a medida",
-        "Integración de base de datos y backend",
-        "Pasarela de pago (Mercado Pago)",
-        "Analytics y métricas de negocio",
-        "5 sprints de desarrollo + QA",
-        "Consultoría de estrategia digital (2 hs)",
-      ],
-      cta: "Quiero hacer crecer mi negocio",
-    },
-    {
-      id: 3,
-      name: "Proyecto a Medida",
-      subtitle: "Para empresas con requerimientos específicos",
-      price: "COTIZAR",
-      badge: null,
-      color: "from-violet-500 to-purple-700",
-      popular: false,
-      pitch: "Desarrollamos exactamente lo que tu empresa necesita.",
-      features: [
-        "E-commerce o plataforma SAAS compleja",
-        "Integraciones con ERPs y sistemas externos",
-        "Arquitectura escalable y modular",
-        "Sistemas de usuarios y roles avanzados",
-        "Dashboard con métricas de negocio (BI)",
-        "Consultoría de arquitectura de software",
-        "Soporte técnico prioritario incluido",
-      ],
-      cta: "Agendar una consultoría gratis",
-    },
-  ];
-
-  const generateWhatsAppLink = (packageName, cta) => {
-    const message = `¡Hola! 👋 Estoy interesado en el plan *${packageName}* — "${cta}". ¿Me podés dar más información? ¡Gracias!`;
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  };
-
-  const openWhatsApp = (packageName, cta) => {
-    window.open(generateWhatsAppLink(packageName, cta), "_blank");
+  const openWhatsApp = (pkg) => {
+    window.open(pkg.waUrl, "_blank");
   };
 
   const goToNext = () => setActiveIndex((prev) => (prev + 1) % packages.length);
@@ -115,7 +48,11 @@ const Insights = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [packages.length]);
+
+  useEffect(() => {
+    setActiveIndex((i) => Math.min(i, packages.length - 1));
+  }, [packages.length]);
 
   const getCardStyle = (index) => {
     const position = index - activeIndex;
@@ -128,39 +65,36 @@ const Insights = () => {
     return { transform: "translateX(0%) scale(0.6)", zIndex: 1, opacity: 0 };
   };
 
+  const isQuotePrice = (price) => price === "COTIZAR" || price === "GET A QUOTE";
+
   return (
     <section className="relative overflow-hidden py-20 px-4" id="explore">
       <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
-              Planes y Precios
+              {t("insights.label")}
             </span>
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-cyan-400" />
           </div>
 
           <h2 className="text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
-              Tu negocio merece
+              {t("insights.title1")}
             </span>
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              estar en internet
+              {t("insights.title2")}
             </span>
           </h2>
 
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Soluciones reales para emprendedores y pymes argentinas.
-            <span className="text-cyan-400 font-semibold">
-              {" "}Sin costos ocultos, sin letra chica.
-            </span>
+            {t("insights.intro")}
+            <span className="text-cyan-400 font-semibold"> {t("insights.introBold")}</span>
           </p>
         </div>
 
-        {/* Carousel 3D */}
         <div
           className="relative w-full max-w-6xl mx-auto mb-12 select-none"
           style={{ perspective: "1200px", height: "620px" }}
@@ -168,7 +102,6 @@ const Insights = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Nav buttons desktop */}
           <button
             onClick={goToPrevious}
             className="absolute -left-16 top-1/2 transform -translate-y-1/2 z-30
@@ -176,7 +109,7 @@ const Insights = () => {
                        text-white p-2 rounded-full shadow-lg
                        transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
                        hidden xl:flex items-center justify-center"
-            aria-label="Tarjeta anterior"
+            aria-label={t("insights.prevCard")}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -190,14 +123,13 @@ const Insights = () => {
                        text-white p-2 rounded-full shadow-lg
                        transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
                        hidden xl:flex items-center justify-center"
-            aria-label="Siguiente tarjeta"
+            aria-label={t("insights.nextCard")}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-          {/* Cards */}
           {packages.map((pkg, index) => {
             const isActive = index === activeIndex;
             const cardStyle = getCardStyle(index);
@@ -219,7 +151,6 @@ const Insights = () => {
                 }}
                 onClick={() => !isActive && !isDragging && setActiveIndex(index)}
               >
-                {/* Badge popular */}
                 {pkg.badge && isActive && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
                     <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
@@ -236,7 +167,6 @@ const Insights = () => {
                     ${isActive ? "hover:shadow-cyan-500/30 hover:border-cyan-400/70" : "hover:border-slate-600/60"}
                   `}
                 >
-                  {/* Header */}
                   <div className="text-center mb-5">
                     <h3 className={`${isActive ? "text-2xl" : "text-lg"} font-bold text-white mb-1`}>
                       {pkg.name}
@@ -245,10 +175,9 @@ const Insights = () => {
                       {pkg.subtitle}
                     </p>
 
-                    {/* Pitch line — solo en activo */}
                     {isActive && (
                       <p className="text-cyan-300 text-xs mb-3 italic leading-snug px-2">
-                        "{pkg.pitch}"
+                        &ldquo;{pkg.pitch}&rdquo;
                       </p>
                     )}
 
@@ -258,13 +187,12 @@ const Insights = () => {
                       >
                         {pkg.price}
                       </span>
-                      {pkg.price !== "COTIZAR" && (
-                        <span className="text-gray-400 text-sm ml-1">ARS</span>
+                      {!isQuotePrice(pkg.price) && (
+                        <span className="text-gray-400 text-sm ml-1">{t("insights.ars")}</span>
                       )}
                     </div>
                   </div>
 
-                  {/* Features */}
                   <div className="flex-1 mb-6 overflow-y-auto">
                     <ul className="space-y-3">
                       {pkg.features.map((feature, i) => (
@@ -289,11 +217,10 @@ const Insights = () => {
                     </ul>
                   </div>
 
-                  {/* CTA */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (isActive) openWhatsApp(pkg.name, pkg.cta);
+                      if (isActive) openWhatsApp(pkg);
                       else setActiveIndex(index);
                     }}
                     className={`
@@ -309,7 +236,7 @@ const Insights = () => {
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.403" />
                       </svg>
                     )}
-                    {isActive ? pkg.cta : "Ver plan"}
+                    {isActive ? pkg.cta : t("insights.viewPlan")}
                   </button>
                 </div>
               </div>
@@ -317,19 +244,16 @@ const Insights = () => {
           })}
         </div>
 
-        {/* Indicadores */}
         <div className="text-center">
           <div className="mb-4 block xl:hidden">
             <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
               <span className="animate-pulse">👈</span>
-              Deslizá para ver los planes
+              {t("insights.swipeHint")}
               <span className="animate-pulse">👉</span>
             </p>
           </div>
           <div className="mb-4 hidden xl:block">
-            <p className="text-gray-500 text-xs">
-              Usá las flechas del teclado ← → para navegar
-            </p>
+            <p className="text-gray-500 text-xs">{t("insights.keyboardHint")}</p>
           </div>
           <div className="flex justify-center gap-3 mb-6">
             {packages.map((_, index) => (
@@ -339,16 +263,13 @@ const Insights = () => {
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex ? "bg-cyan-400 scale-125" : "bg-gray-600 hover:bg-gray-400"
                 }`}
-                aria-label={`Ir al plan ${index + 1}`}
+                aria-label={t("insights.goToPlan", { n: index + 1 })}
               />
             ))}
           </div>
 
-          {/* Nota de confianza */}
           <p className="text-gray-500 text-xs max-w-md mx-auto">
-            💬 Todos los planes incluyen una{" "}
-            <span className="text-cyan-400">llamada de diagnóstico gratuita</span>
-            {" "}para entender tu negocio antes de arrancar.
+            {t("insights.trustEmoji")} {t("insights.trustNote")}
           </p>
         </div>
       </div>

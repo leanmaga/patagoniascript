@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import styles from "../styles";
 import { staggerContainer, textVariant } from "../utils/motion";
 import RedesSociales from "@/components/RedesSociales";
+import { useLanguage } from "@/context/LanguageContext";
 
-const Hero = () => (
+const Hero = () => {
+  const { t } = useLanguage();
+
+  return (
   <section id="home" className="relative min-h-screen overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900" />
 
@@ -62,7 +66,7 @@ const Hero = () => (
           className="flex flex-row justify-center items-center p-8"
         >
           <h2 className={`${styles.heroSubtitle} pt-4 relative z-10`}>
-             "Tu negocio, en internet, en dos semanas."
+            {t("hero.subtitle")}
           </h2>
         </motion.div>
 
@@ -85,11 +89,11 @@ const Hero = () => (
 
             <span className="text-[16px] text-white font-bold relative z-10">
               <a
-                href="https://api.whatsapp.com/send?phone=5491127764823&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal."
+                href={t("hero.whatsappUrl")}
                 target="_blank"
                 rel="noreferrer"
               >
-                 Hablemos sobre tu negocio
+                {t("hero.cta")}
               </a>
             </span>
           </motion.button>
@@ -121,6 +125,7 @@ const Hero = () => (
       </div>
     </motion.div>
   </section>
-);
+  );
+};
 
 export default Hero;

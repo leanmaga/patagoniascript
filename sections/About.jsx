@@ -3,8 +3,17 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { staggerContainer } from "../utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: "+20", label: t("about.stat1") },
+    { value: "2 sem", label: t("about.stat2") },
+    { value: "100%", label: t("about.stat3") },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -21,12 +30,6 @@ const About = () => {
       transition: { type: "spring", stiffness: 100, damping: 10 },
     },
   };
-
-  const stats = [
-    { value: "+20", label: "proyectos entregados" },
-    { value: "2 sem", label: "tiempo promedio de entrega" },
-    { value: "100%", label: "clientes satisfechos" },
-  ];
 
   return (
     <section id="about" className={`${styles.yPaddings} relative`}>
@@ -48,7 +51,7 @@ const About = () => {
           >
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
-              Quiénes somos
+              {t("about.label")}
             </span>
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-cyan-400" />
           </motion.div>
@@ -59,11 +62,11 @@ const About = () => {
             variants={itemVariants}
           >
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
-              Hacemos crecer
+              {t("about.titleGrow")}
             </span>
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              tu negocio
+              {t("about.titleBusiness")}
             </span>
           </motion.h2>
 
@@ -77,16 +80,14 @@ const About = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                "Sabemos lo que es{" "}
+                {t("about.quoteBefore")}{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  empezar de cero con poco presupuesto
+                  {t("about.quoteHighlight1")}
                 </span>{" "}
-                y necesitar resultados reales.{" "}
+                {t("about.quoteMid")}{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">
-                  Por eso construimos soluciones que generan impacto desde el
-                  primer día.
+                  {t("about.quoteHighlight2")}
                 </span>
-                "
               </motion.h3>
               <div className="absolute -top-4 -left-4 text-6xl text-cyan-400/30 font-serif">"</div>
               <div className="absolute -bottom-8 -right-4 text-6xl text-cyan-400/30 font-serif">"</div>
@@ -101,14 +102,13 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              En{" "}
-              <span className="text-cyan-400 font-semibold">PatagoniaScript</span>{" "}
-              trabajamos con emprendedores y pymes que quieren dar el salto
-              digital sin perderse en tecnicismos ni gastar de más.{" "}
+              {t("about.p1a")}{" "}
+              <span className="text-cyan-400 font-semibold">{t("about.brand")}</span>{" "}
+              {t("about.p1b")}{" "}
               <span className="text-cyan-400 font-semibold">
-                Te acompañamos desde la idea hasta el lanzamiento
+                {t("about.p1c")}
               </span>
-              , con foco en que tu inversión se traduzca en clientes reales.
+              {t("about.p1d")}
             </motion.p>
 
             <motion.p
@@ -117,14 +117,13 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
-              Basados en{" "}
-              <span className="text-cyan-400 font-semibold">Buenos Aires</span>,
-              entendemos el contexto argentino: precios accesibles, comunicación
-              directa y{" "}
+              {t("about.p2a")}{" "}
+              <span className="text-cyan-400 font-semibold">{t("about.city")}</span>
+              {t("about.p2b")}{" "}
               <span className="text-blue-400 font-semibold">
-                resultados que se ven en tu negocio
+                {t("about.p2c")}
               </span>
-              , no solo en pantalla.
+              {t("about.p2d")}
             </motion.p>
           </motion.div>
 

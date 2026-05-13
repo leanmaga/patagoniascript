@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ProjectCarouselCard = ({
   project,
@@ -11,6 +12,8 @@ const ProjectCarouselCard = ({
   cardStyle,
   isDragging = false,
 }) => {
+  const { t } = useLanguage();
+
   return (
     <div
       className="absolute top-1/2 left-1/2 cursor-pointer"
@@ -46,7 +49,7 @@ const ProjectCarouselCard = ({
         <h3 className="text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent mb-1">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-400 mb-2">Proyecto Web Completo</p>
+        <p className="text-sm text-gray-400 mb-2">{t("projects.kindLabel")}</p>
 
         <div className="flex flex-wrap gap-1 mb-3">
           {project.tags?.map((tag, idx) => (
@@ -66,7 +69,7 @@ const ProjectCarouselCard = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Ver Proyecto
+            {t("projects.viewCta")}
           </motion.button>
         </a>
       </div>

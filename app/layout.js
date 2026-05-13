@@ -1,9 +1,11 @@
-// app/layout.js o app/page.js según tu estructura
 import "../styles/globals.css";
+import Providers from "@/components/Providers";
 
 const RootLayout = ({ children }) => (
-  <html lang="en">
-    <body className="bg-primary-black">{children}</body>
+  <html lang="es" suppressHydrationWarning>
+    <body className="bg-primary-black">
+      <Providers>{children}</Providers>
+    </body>
   </html>
 );
 

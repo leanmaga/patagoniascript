@@ -5,8 +5,12 @@ import styles from "../styles";
 import { startingFeatures } from "../constants";
 import { StartStep, TitleText, TypingText } from "@/components/";
 import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
-const GetStarted = () => (
+const GetStarted = () => {
+  const { t, localizeStartingFeature } = useLanguage();
+
+  return (
   <section className={`${styles.paddings} relative overflow-hidden`}>
     <motion.div
       variants={staggerContainer}
@@ -30,18 +34,23 @@ const GetStarted = () => (
         variants={fadeIn("left", "tween", 0.2, 1)}
         className="flex flex-col justify-center items-center text-center content-center flex-wrap"
       >
-        <TypingText title="| Tecnologías utilizadas " />
+        <TypingText title={t("getStarted.typing")} />
 
-        <TitleText title={<>Potenciá tu negocio</>} />
+        <TitleText title={<>{t("getStarted.title")}</>} />
 
         <div className="mt-[31px] flex flex-col items-center content-center flex-wrap max-w-[370px] gap-[24px]">
           {startingFeatures.map((feature, index) => (
-            <StartStep key={feature.title} {...feature} index={index} />
+            <StartStep
+              key={feature.title}
+              {...localizeStartingFeature(feature, index)}
+              index={index}
+            />
           ))}
         </div>
       </motion.div>
     </motion.div>
   </section>
-);
+  );
+};
 
 export default GetStarted;

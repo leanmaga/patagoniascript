@@ -5,8 +5,10 @@ import { fadeIn } from "../utils/motion";
 import { useForm, ValidationError } from "@formspree/react";
 import RedesSociales from "./RedesSociales";
 import { TitleText, TypingText } from "../components";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactForm = () => {
+  const { t } = useLanguage();
   const [state, handleSubmit] = useForm("xjvdrgba");
 
   if (state.succeeded) {
@@ -19,8 +21,8 @@ const ContactForm = () => {
             whileInView={"show"}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <TypingText title="| ¡Gracias por contactarme!" />
-            <TitleText title="Te responderé a la brevedad" />
+            <TypingText title={t("contact.thanksTyping")} />
+            <TitleText title={t("contact.thanksTitle")} />
           </motion.div>
         </div>
       </section>
@@ -40,8 +42,8 @@ const ContactForm = () => {
         >
           {/* Texto con alineación separada */}
           <div className="mb-8 text-center lg:text-left">
-            <TypingText title="| Get in touch" />
-            <TitleText title={<>Potenciá tu negocio</>} />
+            <TypingText title={t("contact.typing")} />
+            <TitleText title={<>{t("contact.title")}</>} />
           </div>
 
           {/* Redes sociales siempre centradas */}
@@ -66,7 +68,7 @@ const ContactForm = () => {
               name="name"
               type="text"
               className="w-full bg-transparent border-b border-cyan-400/30 py-3 placeholder:text-cyan-200 focus:outline-none focus:border-cyan-400 transition-all"
-              placeholder="Su Nombre"
+              placeholder={t("contact.namePh")}
             />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
           </div>
@@ -78,7 +80,7 @@ const ContactForm = () => {
               name="email"
               type="email"
               className="w-full bg-transparent border-b border-cyan-400/30 py-3 placeholder:text-cyan-200 focus:outline-none focus:border-cyan-400 transition-all"
-              placeholder="Su Email"
+              placeholder={t("contact.emailPh")}
             />
             <ValidationError
               prefix="Email"
@@ -93,7 +95,7 @@ const ContactForm = () => {
               id="message"
               name="message"
               className="w-full bg-transparent border-b border-cyan-400/30 py-3 placeholder:text-cyan-200 focus:outline-none focus:border-cyan-400 transition-all resize-none h-32"
-              placeholder="Su mensaje"
+              placeholder={t("contact.messagePh")}
             />
             <ValidationError
               prefix="Message"
@@ -107,7 +109,7 @@ const ContactForm = () => {
             disabled={state.submitting}
             className="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl font-semibold shadow-lg hover:shadow-cyan-500/40 transition-all duration-300"
           >
-            Enviar Mensaje
+            {t("contact.submit")}
           </button>
         </motion.form>
       </div>

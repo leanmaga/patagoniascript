@@ -5,8 +5,12 @@ import styles from "../styles";
 import { newFeatures } from "../constants";
 import { NewFeatures, TitleText, TypingText } from "../components";
 import { planetVariants, staggerContainer, fadeIn } from "../utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
-const WhatsNew = () => (
+const WhatsNew = () => {
+  const { t, localizeNewFeature } = useLanguage();
+
+  return (
   <section className={`${styles.paddings} relative overflow-hidden`}>
     <motion.div
       variants={staggerContainer}
@@ -19,13 +23,17 @@ const WhatsNew = () => (
         variants={fadeIn("right", "tween", 0.2, 1)}
         className="flex flex-col justify-center items-center text-center content-center flex-wrap"
       >
-        <TypingText title="| Whats new?" />
+        <TypingText title={t("whatsNew.typing")} />
 
-        <TitleText title={<>Explora las Últimas Novedades</>} />
+        <TitleText title={<>{t("whatsNew.title")}</>} />
 
         <div className="mt-[31px] flex flex-col items-center content-center flex-wrap max-w-[370px] gap-[24px]">
           {newFeatures.map((feature, index) => (
-            <NewFeatures key={feature.title} {...feature} index={index} />
+            <NewFeatures
+              key={feature.title}
+              {...localizeNewFeature(feature, index)}
+              index={index}
+            />
           ))}
         </div>
       </motion.div>
@@ -42,6 +50,7 @@ const WhatsNew = () => (
       </motion.div>
     </motion.div>
   </section>
-);
+  );
+};
 
 export default WhatsNew;

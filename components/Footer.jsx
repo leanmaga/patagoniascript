@@ -3,8 +3,13 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { textVariant, footerVariants } from "../utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
-const Footer = () => (
+const Footer = () => {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
+  return (
   <motion.footer
     variants={footerVariants}
     initial="hidden"
@@ -31,12 +36,13 @@ const Footer = () => (
           </div>
 
           <p className="font-normal text-[14px] text-white opacity-50">
-            Copyright © {new Date().getFullYear()} PatagoniaScript. All rights reserved.
+            {t("footer.rights", { year })}
           </p>
         </div>
       </div>
     </div>
   </motion.footer>
-);
+  );
+};
 
 export default Footer;

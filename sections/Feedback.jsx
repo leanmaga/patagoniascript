@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Feedback = () => {
+  const { t, locale } = useLanguage();
+  const dateLocale = locale === "en" ? "en-US" : "es-AR";
   const [reviews, setReviews] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -78,10 +81,7 @@ const Feedback = () => {
 
   const handleSubmit = async () => {
     if (!formData.name || !formData.rating) {
-      showNotification(
-        "Por favor completa todos los campos obligatorios",
-        "error"
-      );
+      showNotification(t("feedback.fillRequired"), "error");
       return;
     }
 
@@ -109,17 +109,14 @@ const Feedback = () => {
         setReviews((prev) => [newReview, ...prev]);
         setActiveIndex(0); // Mostrar la nueva reseña
 
-        showNotification("¡Reseña publicada exitosamente!", "success");
+        showNotification(t("feedback.success"), "success");
         setFormData({ name: "", handle: "", rating: 0, message: "" });
         setShowForm(false);
       } else {
         showNotification(data.error, "error");
       }
     } catch (error) {
-      showNotification(
-        "Error al enviar la reseña. Intenta nuevamente.",
-        "error"
-      );
+      showNotification(t("feedback.errorSend"), "error");
     } finally {
       setSubmitting(false);
     }
@@ -292,18 +289,18 @@ const Feedback = () => {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-400" />
             <span className="text-cyan-400 font-medium tracking-wider uppercase text-sm">
-              Testimonios
+              {t("feedback.label")}
             </span>
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-cyan-400" />
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
-              Lo Que Dicen
+              {t("feedback.title1")}
             </span>
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Nuestros Clientes
+              {t("feedback.title2")}
             </span>
           </h2>
 
@@ -329,7 +326,11 @@ const Feedback = () => {
                   {averageRating}
                 </span>
                 <span className="text-gray-400 text-sm">
-                  ({reviews.length} reseña{reviews.length !== 1 ? "s" : ""})
+                  ({reviews.length}{" "}
+                  {reviews.length !== 1
+                    ? t("feedback.reviewPlural")
+                    : t("feedback.reviewSingular")}
+                  )
                 </span>
               </div>
             </div>
@@ -340,7 +341,7 @@ const Feedback = () => {
             onClick={() => setShowForm(!showForm)}
             className="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl text-white font-semibold shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:scale-105"
           >
-            {showForm ? "Cancelar" : "✍️ Deja tu Reseña"}
+            {showForm ? t("feedback.cancel") : t("feedback.leaveReview")}
           </button>
         </div>
 
@@ -348,14 +349,14 @@ const Feedback = () => {
         {showForm && (
           <div className="mb-12 bg-gradient-to-br from-slate-800/50 to-slate-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl p-6 md:p-8">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Comparte tu Experiencia
+              {t("feedback.shareTitle")}
             </h3>
 
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-cyan-400 font-medium mb-2">
-                    Nombre *
+                    {t("feedback.nameLabel")}
                   </label>
                   <input
                     type="text"
@@ -363,7 +364,7 @@ const Feedback = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-700/50 border border-cyan-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
-                    placeholder="Tu nombre"
+                    placeholder={t("feedback.namePh")}
                     maxLength="50"
                     required
                   />
@@ -371,7 +372,7 @@ const Feedback = () => {
 
                 <div>
                   <label className="block text-cyan-400 font-medium mb-2">
-                    Instagram (Opcional)
+                    {t("feedback.igLabel")}
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-base">
@@ -388,14 +389,14 @@ const Feedback = () => {
                     />
                   </div>
                   <p className="text-gray-500 text-xs mt-1">
-                    Tu Instagram aparecerá como enlace para verificar la reseña
+                    {t("feedback.igHint")}
                   </p>
                 </div>
               </div>
 
               <div>
                 <label className="block text-cyan-400 font-medium mb-3">
-                  Calificación *
+                  {t("feedback.ratingLabel")}
                 </label>
                 <div className="mb-2">
                   <StarRating
@@ -406,16 +407,20 @@ const Feedback = () => {
                 </div>
                 <p className="text-gray-400 text-sm">
                   {formData.rating > 0
-                    ? `Has seleccionado ${formData.rating} estrella${
-                        formData.rating > 1 ? "s" : ""
-                      }`
-                    : "Haz clic en las estrellas para calificar"}
+                    ? t("feedback.ratingLine", {
+                        n: formData.rating,
+                        word:
+                          formData.rating > 1
+                            ? t("feedback.starsWord")
+                            : t("feedback.starWord"),
+                      })
+                    : t("feedback.ratingPick")}
                 </p>
               </div>
 
               <div>
                 <label className="block text-cyan-400 font-medium mb-2">
-                  Mensaje (Opcional)
+                  {t("feedback.msgLabel")}
                 </label>
                 <textarea
                   name="message"
@@ -423,11 +428,11 @@ const Feedback = () => {
                   onChange={handleInputChange}
                   rows="4"
                   className="w-full px-4 py-3 bg-slate-700/50 border border-cyan-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
-                  placeholder="Cuéntanos sobre tu experiencia..."
+                  placeholder={t("feedback.msgPh")}
                   maxLength="500"
                 />
                 <p className="text-gray-400 text-xs mt-1">
-                  {formData.message.length}/500 caracteres
+                  {t("feedback.chars", { n: formData.message.length })}
                 </p>
               </div>
 
@@ -437,7 +442,7 @@ const Feedback = () => {
                 disabled={submitting || !formData.name || !formData.rating}
                 className="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl text-white font-semibold shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                {submitting ? "Enviando..." : "Enviar Reseña"}
+                {submitting ? t("feedback.submitting") : t("feedback.submit")}
               </button>
             </div>
           </div>
@@ -447,13 +452,11 @@ const Feedback = () => {
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
-            <p className="text-gray-400 mt-4">Cargando reseñas...</p>
+            <p className="text-gray-400 mt-4">{t("feedback.loading")}</p>
           </div>
         ) : reviews.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">
-              Sé el primero en dejar una reseña
-            </p>
+            <p className="text-gray-400 text-lg">{t("feedback.empty")}</p>
           </div>
         ) : reviews.length === 1 ? (
           // Mostrar una sola reseña sin slider
@@ -516,7 +519,7 @@ const Feedback = () => {
 
               <div className="flex justify-between items-center text-xs text-gray-500">
                 <span>
-                  {new Date(reviews[0].createdAt).toLocaleDateString("es-ES", {
+                  {new Date(reviews[0].createdAt).toLocaleDateString(dateLocale, {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -546,7 +549,7 @@ const Feedback = () => {
                            text-white p-2 rounded-full shadow-lg
                            transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
                            hidden xl:flex items-center justify-center"
-                aria-label="Reseña anterior"
+                aria-label={t("feedback.prevReview")}
               >
                 <svg
                   className="w-4 h-4"
@@ -570,7 +573,7 @@ const Feedback = () => {
                            text-white p-2 rounded-full shadow-lg
                            transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100
                            hidden xl:flex items-center justify-center"
-                aria-label="Siguiente reseña"
+                aria-label={t("feedback.nextReview")}
               >
                 <svg
                   className="w-4 h-4"
@@ -674,7 +677,7 @@ const Feedback = () => {
                       <div className="text-xs text-gray-500 relative z-10">
                         <span>
                           {new Date(review.createdAt).toLocaleDateString(
-                            "es-ES",
+                            dateLocale,
                             {
                               year: "numeric",
                               month: "long",
@@ -695,7 +698,7 @@ const Feedback = () => {
               <div className="mb-4 block xl:hidden">
                 <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
                   <span className="animate-pulse">👈</span>
-                  Desliza para cambiar
+                  {t("feedback.swipeReviews")}
                   <span className="animate-pulse">👉</span>
                 </p>
               </div>
@@ -703,7 +706,7 @@ const Feedback = () => {
               {/* Indicador de teclado - Solo en desktop */}
               <div className="mb-4 hidden xl:block">
                 <p className="text-gray-500 text-xs">
-                  Usa las flechas del teclado ← → para navegar
+                  {t("feedback.keyboardReviews")}
                 </p>
               </div>
 
@@ -721,7 +724,7 @@ const Feedback = () => {
                           : "bg-gray-600 hover:bg-gray-400"
                       }
                     `}
-                    aria-label={`Ir a la reseña ${index + 1}`}
+                    aria-label={t("feedback.goReview", { n: index + 1 })}
                   />
                 ))}
               </div>
@@ -739,9 +742,9 @@ const Feedback = () => {
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             <span className="hidden sm:inline">
-              Ver Más Testimonios en LinkedIn
+              {t("feedback.linkedInLong")}
             </span>
-            <span className="sm:hidden">Ver en LinkedIn</span>
+            <span className="sm:hidden">{t("feedback.linkedInShort")}</span>
           </button>
         </div>
       </div>
