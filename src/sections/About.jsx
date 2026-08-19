@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { staggerContainer } from "../utils/motion";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const About = () => {
   const { t } = useLanguage();
@@ -89,13 +89,20 @@ const About = () => {
                   {t("about.quoteHighlight2")}
                 </span>
               </motion.h3>
-              <div className="absolute -top-4 -left-4 text-6xl text-cyan-400/30 font-serif">"</div>
-              <div className="absolute -bottom-8 -right-4 text-6xl text-cyan-400/30 font-serif">"</div>
+              <div className="absolute -top-4 -left-4 text-6xl text-cyan-400/30 font-serif">
+                "
+              </div>
+              <div className="absolute -bottom-8 -right-4 text-6xl text-cyan-400/30 font-serif">
+                "
+              </div>
             </blockquote>
           </motion.div>
 
           {/* Descripción */}
-          <motion.div className="space-y-6 max-w-4xl mb-14" variants={itemVariants}>
+          <motion.div
+            className="space-y-6 max-w-4xl mb-14"
+            variants={itemVariants}
+          >
             <motion.p
               className="text-lg md:text-xl text-gray-300 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
@@ -103,7 +110,9 @@ const About = () => {
               transition={{ delay: 0.7 }}
             >
               {t("about.p1a")}{" "}
-              <span className="text-cyan-400 font-semibold">{t("about.brand")}</span>{" "}
+              <span className="text-cyan-400 font-semibold">
+                {t("about.brand")}
+              </span>{" "}
               {t("about.p1b")}{" "}
               <span className="text-cyan-400 font-semibold">
                 {t("about.p1c")}
@@ -118,7 +127,9 @@ const About = () => {
               transition={{ delay: 0.9 }}
             >
               {t("about.p2a")}{" "}
-              <span className="text-cyan-400 font-semibold">{t("about.city")}</span>
+              <span className="text-cyan-400 font-semibold">
+                {t("about.city")}
+              </span>
               {t("about.p2b")}{" "}
               <span className="text-blue-400 font-semibold">
                 {t("about.p2c")}
@@ -143,7 +154,9 @@ const About = () => {
                 <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-1">
                   {stat.value}
                 </p>
-                <p className="text-gray-400 text-xs leading-snug">{stat.label}</p>
+                <p className="text-gray-400 text-xs leading-snug">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
+import { fadeIn } from "@/utils/motion";
 import Image from "next/image";
 
 const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => {

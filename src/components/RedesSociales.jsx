@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { staggerContainer } from "../utils/motion";
+import { staggerContainer } from "@/utils/motion";
 
 const RedesSociales = ({ className }) => {
   const socials = [
@@ -213,12 +213,16 @@ const RedesSociales = ({ className }) => {
         @keyframes glow-pulse {
           0%,
           100% {
-            text-shadow: 0 0 5px rgba(34, 211, 238, 0.5),
-              0 0 10px rgba(34, 211, 238, 0.5), 0 0 15px rgba(34, 211, 238, 0.5);
+            text-shadow:
+              0 0 5px rgba(34, 211, 238, 0.5),
+              0 0 10px rgba(34, 211, 238, 0.5),
+              0 0 15px rgba(34, 211, 238, 0.5);
           }
           50% {
-            text-shadow: 0 0 10px rgba(34, 211, 238, 0.8),
-              0 0 20px rgba(34, 211, 238, 0.8), 0 0 30px rgba(34, 211, 238, 0.8);
+            text-shadow:
+              0 0 10px rgba(34, 211, 238, 0.8),
+              0 0 20px rgba(34, 211, 238, 0.8),
+              0 0 30px rgba(34, 211, 238, 0.8);
           }
         }
       `}</style>

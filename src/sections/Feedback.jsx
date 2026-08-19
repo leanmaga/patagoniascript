@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const Feedback = () => {
   const { t, locale } = useLanguage();
@@ -519,11 +519,14 @@ const Feedback = () => {
 
               <div className="flex justify-between items-center text-xs text-gray-500">
                 <span>
-                  {new Date(reviews[0].createdAt).toLocaleDateString(dateLocale, {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
+                  {new Date(reviews[0].createdAt).toLocaleDateString(
+                    dateLocale,
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    },
+                  )}
                 </span>
               </div>
             </div>
@@ -682,7 +685,7 @@ const Feedback = () => {
                               year: "numeric",
                               month: "long",
                               day: "numeric",
-                            }
+                            },
                           )}
                         </span>
                       </div>

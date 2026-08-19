@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Nav, ContactForm, Footer, Leadership } from "../components";
-import UnifiedBackground from "../components/UnifiedBackground";
+import { Nav, ContactForm, Footer, Leadership } from "@/components";
+import UnifiedBackground from "@/components/UnifiedBackground";
 import {
   Hero,
   About,
@@ -26,7 +26,7 @@ const Page = () => {
       {
         root: null,
         threshold: 0.2, // Se activa cuando el 20% del footer es visible
-      }
+      },
     );
 
     if (footerRef.current) observer.observe(footerRef.current);

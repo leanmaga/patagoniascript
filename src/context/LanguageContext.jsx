@@ -8,11 +8,14 @@ import {
   useMemo,
   useState,
 } from "react";
-import { getNested } from "@/lib/getNested";
-import { STRINGS } from "@/locales/strings";
-import { plansByLocale } from "@/locales/insightPlans";
-import { projectCopyEn } from "@/locales/portfolioEn";
-import { startingFeatureSubtitlesEn, newFeatureSubtitlesEn } from "@/locales/featureCopyEn";
+import { getNested } from "../lib/getNested";
+import { STRINGS } from "../locales/strings";
+import { plansByLocale } from "../locales/insightPlans";
+import { projectCopyEn } from "../locales/portfolioEn";
+import {
+  startingFeatureSubtitlesEn,
+  newFeatureSubtitlesEn,
+} from "../locales/featureCopyEn";
 
 const STORAGE_KEY = "patagoniascript-locale";
 
@@ -54,12 +57,12 @@ export function LanguageProvider({ children }) {
       if (typeof value !== "string") return value;
       if (vars && typeof vars === "object") {
         return value.replace(/\{(\w+)\}/g, (_, k) =>
-          vars[k] !== undefined && vars[k] !== null ? String(vars[k]) : ""
+          vars[k] !== undefined && vars[k] !== null ? String(vars[k]) : "",
         );
       }
       return value;
     },
-    [dict]
+    [dict],
   );
 
   const insightPlans = plansByLocale[locale] ?? plansByLocale.es;
@@ -71,7 +74,7 @@ export function LanguageProvider({ children }) {
       if (!extra) return project;
       return { ...project, ...extra };
     },
-    [locale]
+    [locale],
   );
 
   const localizeStartingFeature = useCallback(
@@ -81,7 +84,7 @@ export function LanguageProvider({ children }) {
       if (!subtitle) return feature;
       return { ...feature, subtitle };
     },
-    [locale]
+    [locale],
   );
 
   const localizeNewFeature = useCallback(
@@ -91,7 +94,7 @@ export function LanguageProvider({ children }) {
       if (!subtitle) return feature;
       return { ...feature, subtitle };
     },
-    [locale]
+    [locale],
   );
 
   const value = useMemo(
@@ -112,7 +115,7 @@ export function LanguageProvider({ children }) {
       localizeProject,
       localizeStartingFeature,
       localizeNewFeature,
-    ]
+    ],
   );
 
   return (

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
+import { fadeIn } from "@/utils/motion";
 import { useForm, ValidationError } from "@formspree/react";
 import RedesSociales from "./RedesSociales";
-import { TitleText, TypingText } from "../components";
+import { TitleText, TypingText } from "@/components";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ContactForm = () => {

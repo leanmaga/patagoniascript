@@ -3,9 +3,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import styles from "../styles";
-import ProjectCarouselCard from "@/components/ProjectCarouselCard";
-import { projects } from "@/constants";
-import { useLanguage } from "@/context/LanguageContext";
+import ProjectCarouselCard from "../components/ProjectCarouselCard";
+import { projects } from "../constants";
+import { useLanguage } from "../context/LanguageContext";
 
 const Explore = () => {
   const { t, localizeProject } = useLanguage();
@@ -61,7 +61,7 @@ const Explore = () => {
 
   const localizedProjects = useMemo(
     () => projects.map((p) => localizeProject(p)),
-    [localizeProject]
+    [localizeProject],
   );
 
   const getCardStyle = (index) => {
