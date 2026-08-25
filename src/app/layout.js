@@ -1,10 +1,10 @@
-import "@/styles/globals.css";
-import Providers from "@/components/Providers";
+import "@/core/styles/globals.css";
+import { Provider } from "@/core/ui/Provider";
 
 const RootLayout = ({ children }) => (
   <html lang="es" suppressHydrationWarning>
     <body className="bg-primary-black">
-      <Providers>{children}</Providers>
+      <Provider>{children}</Provider>
     </body>
   </html>
 );

@@ -1,17 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Nav, ContactForm, Footer, Leadership } from "@/components";
-import UnifiedBackground from "@/components/UnifiedBackground";
-import {
-  Hero,
-  About,
-  Feedback,
-  GetStarted,
-  Insights,
-  WhatsNew,
-  // World,
-  Explore,
-} from "../sections";
+import { Nav, Footer, UnifiedBackground } from "@/core/ui/";
+import { Hero, About, Insights, Leadership } from "@/features/present-agency/";
+import { Reviews } from "@/features/manage-reviews/Reviews";
+import { ContactForm } from "@/features/capture-lead/ContactForm";
+import { PortfolioSection } from "@/features/showcase-portfolio/PortfolioSection";
 
 const Page = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -48,19 +41,13 @@ const Page = () => {
       <UnifiedBackground>
         <About />
         <div className="gradient-03 z-0" />
-        <Explore />
-
-        <GetStarted />
-        <div className="gradient-04 z-0" />
-        <WhatsNew />
-
-        {/* <World /> */}
+        <PortfolioSection />
 
         <Insights />
         <div className="gradient-04 z-0" />
         <Leadership />
         <div className="gradient-04 z-0" />
-        <Feedback />
+        <Reviews />
 
         <ContactForm />
 
