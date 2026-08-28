@@ -5,7 +5,7 @@
 
 💡 *"Donde la creatividad se une con la funcionalidad"*
 
-PatagoniaScript es un estudio de desarrollo web fundado en 2023, enfocado en construir sitios, e-commerce y plataformas a medida para pymes y emprendedores argentinos — con identidad visual propia y foco en performance real, no solo en diseño.
+PatagoniaScript es un estudio de desarrollo web fundado en 2023, enfocado en construir sitios, e-commerce y plataformas a medida para pymes y emprendedores — con identidad visual propia y foco en performance real, no solo en diseño.
 
 ---
 
